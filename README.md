@@ -1,2 +1,8 @@
-# testsamples
-Testing sample API wise
+# Test Samples
+
+
+
+| API | Sample Name | Tested By | Completed? |
+| ------------- | ------------- | ------------- | -------- | 
+| ServiceUrl | sample | NAveen |  Yes | 
+
