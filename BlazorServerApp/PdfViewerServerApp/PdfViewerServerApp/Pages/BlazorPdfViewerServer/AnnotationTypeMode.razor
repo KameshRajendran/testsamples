@@ -1,0 +1,207 @@
+@page "/AnnotationTypeMode"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="1060px" Height="500px">
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+            <select @onchange="stopMouseHover">
+                <option value="" selected="selected"></option>
+                <option value="annotationTypeArea">Area</option>
+                <option value="annotationTypeArrow">Arrow</option>
+                <option value="annotationTypeCircle">Circle</option>
+                <option value="annotationTypeDistance">Distance</option>
+                <option value="annotationTypeFreeText">FreeText</option>
+                <option value="annotationTypeHandwrittenSignature">Handwritten Signature</option>
+                <option value="annotationTypeHighlight">Highlight</option>
+                <option value="annotationTypeImage">Image</option>
+                <option value="annotationTypeInk">Ink</option>
+                <option value="annotationTypeLine">Line</option>
+                <option value="annotationTypeNone">None</option>
+                <option value="annotationTypePerimeter">Perimeter</option>
+                <option value="annotationTypePolygon">Polygon</option>
+                <option value="annotationTypeRadius">Radius</option>
+                <option value="annotationTypeRectangle">Rectangle</option>
+                <option value="annotationTypeStamp">Stamp</option>
+                <option value="annotationTypeStickyNotes">StickyNotes</option>
+                <option value="annotationTypeStrikethrough">Strikethrough</option>
+                <option value="annotationTypeUnderline">Underline</option>
+                <option value="annotationTypeVolume">Volume</option>            
+            </select>
+            </form>
+
+@code{
+    SfPdfViewerServer viewer;
+
+     void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "annotationTypeArea":
+                annotationTypeArea();
+                break;
+            case "annotationTypeArrow":              
+                annotationTypeArrow();
+                break;
+            case "annotationTypeCircle":              
+                annotationTypeCircle();
+                break;
+            case "annotationTypeDistance":              
+                annotationTypeDistance();
+                break;
+            case "annotationTypeFreeText":              
+                annotationTypeFreeText();
+                break;
+            case "annotationTypeHandwrittenSignature":              
+                annotationTypeHandwrittenSignature();
+                break;
+            case "annotationTypeHighlight":              
+                annotationTypeHighlight();
+                break;
+            case "annotationTypeImage":              
+                annotationTypeImage();
+                break;
+            case "annotationTypeInk":              
+                annotationTypeInk();
+                break;
+            case "annotationTypeNone":              
+                annotationTypeNone();
+                break;
+            case "annotationTypePerimeter":              
+                annotationTypePerimeter();
+                break;
+            case "annotationTypePolygon":              
+                annotationTypePolygon();
+                break;
+            case "annotationTypeRadius":              
+                annotationTypeRadius();
+                break;
+            case "annotationTypeRectangle":              
+                annotationTypeRectangle();
+                break;
+            case "annotationTypeStamp":              
+                annotationTypeStamp();
+                break;
+            case "annotationTypeStickyNotes":              
+                annotationTypeStickyNotes();
+                break;
+            case "annotationTypeStrikethrough":              
+                annotationTypeStrikethrough();
+                break;
+            case "annotationTypeUnderline":              
+                annotationTypeUnderline();
+                break;
+            case "annotationTypeVolume":              
+                annotationTypeVolume();
+                break;
+
+        }
+    }
+
+    public void annotationTypeArea()
+    {
+        viewer.SetAnnotationMode(AnnotationType.Area);
+    }
+    
+        public void annotationTypeArrow()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Arrow);
+        }
+
+        public void annotationTypeCircle()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Circle);
+        }
+
+        public void annotationTypeDistance()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Distance);
+        }
+
+        public void annotationTypeFreeText()
+        {
+            viewer.SetAnnotationMode(AnnotationType.FreeText);
+        }
+
+        public void annotationTypeHandwrittenSignature()
+        {
+            viewer.SetAnnotationMode(AnnotationType.HandWrittenSignature);
+        }
+
+        public void annotationTypeHighlight()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Highlight);
+        }
+
+        public void annotationTypeImage()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Image);
+        }
+
+        public void annotationTypeInk()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Ink);
+        }
+
+        public void annotationTypeLine()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Line);
+        }
+
+        public void annotationTypeNone()
+        {
+            viewer.SetAnnotationMode(AnnotationType.None);
+        }
+
+        public void annotationTypePerimeter()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Perimeter);
+        }
+
+        public void annotationTypePolygon()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Polygon);
+        }
+
+        public void annotationTypeRadius()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Radius);
+        }
+
+        public void annotationTypeRectangle()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Rectangle);
+        }
+
+        public void annotationTypeStamp()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Stamp);
+        }
+
+        public void annotationTypeStickyNotes()
+        {
+            viewer.SetAnnotationMode(AnnotationType.StickyNotes);
+        }
+
+        public void annotationTypeStrikethrough()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Strikethrough);
+        }
+
+        public void annotationTypeUnderline()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Underline);
+        }
+
+        public void annotationTypeVolume()
+        {
+            viewer.SetAnnotationMode(AnnotationType.Volume);
+        }
+
+        
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+}

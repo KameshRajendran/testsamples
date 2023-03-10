@@ -1,0 +1,53 @@
+@page "/AnnotationPropertiesChangeEventType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+
+        <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%">
+
+            <PdfViewerEvents AnnotationPropertiesChanged="onAnnotationPropertiesChanged" />
+
+           
+
+        </SfPdfViewerServer>
+        <div>
+            @ResultString
+        </div>
+   
+
+
+@code {
+
+
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    private string ResultString = "";
+    bool stopMouseOver = false;
+
+    public SfPdfViewerServer viewer { get; set; }
+
+
+
+
+
+
+
+    public void onAnnotationPropertiesChanged(AnnotationPropertiesChangeEventArgs value)
+    {
+        ResultString = "";
+
+
+         
+        ResultString = $"AnnotationId: {value.AnnotationId}   AnnotationType: {value.AnnotationType}   PageNumber: {value.PageNumber}   Name: {value.Name}   IsBorderDashArrayChanged: {value.IsBorderDashArrayChanged}    IsColorChanged: {value.IsColorChanged}    IsCommentsChanged: {value.IsColorChanged}   IsCommentsChanged: {value.IsCommentsChanged}   IsLineHeadEndStyleChanged: {value.IsLineHeadEndStyleChanged}   IsLineHeadStartStyleChanged: {value.IsLineHeadStartStyleChanged}    IsOpacityChanged: {value.IsOpacityChanged}    IsStrokeColorChanged: {value.IsStrokeColorChanged}     IsTextChanged: {value.IsTextChanged}     IsThicknessChanged: {value.IsThicknessChanged}    TextMarkupContent: {value.TextMarkupContent}   TextMarkUpEndIndex: {value.TextMarkupEndIndex}    TextMarkUpStartIndex: {value.TextMarkupStartIndex}  ";
+
+        }
+
+    
+  
+    
+}

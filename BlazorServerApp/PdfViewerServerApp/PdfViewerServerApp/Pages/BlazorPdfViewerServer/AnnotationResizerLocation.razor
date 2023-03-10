@@ -1,0 +1,57 @@
+@page "/AnnotationRsizeLocationType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+
+<SfPdfViewerServer @ref="viewer" DocumentPath="@DocumentPath" Height="500px" Width="100%" RectangleSettings=@rectangleSettings CircleSettings=@circleSettings LineSettings=@LineSettings>    
+</SfPdfViewerServer>
+
+
+@code{
+    //Sets the PDF document path for initial loading.
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    
+    SfPdfViewerServer viewer;
+
+    //Defines the settings of rectangle annotation.
+    PdfViewerRectangleSettings rectangleSettings = new PdfViewerRectangleSettings
+    {
+        
+        //Defines the annotation selector settings for the annotation.
+        AnnotationSelectorSettings = new PdfViewerAnnotationSelectorSettings()
+        {
+            //Defines the shape of the resizer. By default it is square.
+                ResizerShape = Syncfusion.Blazor.PdfViewer.AnnotationResizerShape.Circle,
+            ResizerLocation=Syncfusion.Blazor.PdfViewer.AnnotationResizerLocation.Edges
+        }
+    };
+
+    PdfViewerCircleSettings circleSettings = new PdfViewerCircleSettings
+        {
+
+            //Defines the annotation selector settings for the annotation.
+            AnnotationSelectorSettings = new PdfViewerAnnotationSelectorSettings()
+            {
+                //Defines the shape of the resizer. By default it is square.
+                ResizerShape = Syncfusion.Blazor.PdfViewer.AnnotationResizerShape.Square,
+                ResizerLocation = Syncfusion.Blazor.PdfViewer.AnnotationResizerLocation.Corners
+            }
+        };
+
+    PdfViewerLineSettings LineSettings = new PdfViewerLineSettings
+        {
+
+            //Defines the annotation selector settings for the annotation.
+            AnnotationSelectorSettings = new PdfViewerAnnotationSelectorSettings()
+            {
+                //Defines the shape of the resizer. By default it is square.
+                ResizerShape = Syncfusion.Blazor.PdfViewer.AnnotationResizerShape.Square,
+                ResizerLocation = Syncfusion.Blazor.PdfViewer.AnnotationResizerLocation.Edges
+            }
+        };
+    
+}

@@ -2,7 +2,7 @@
 
 
 
-| API | Sample Name | Tested By | Completed? |
-| ------------- | ------------- | ------------- | -------- | 
-| ServiceUrl | sample | NAveen |  Yes | 
+| API | Sample Name | Tested By | Completed? | Issues |
+| ------------- | ------------- | ------------- | -------- | ---------------- |
+| ServiceUrl | sample | NAveen |  Yes |  Issues  |
 
