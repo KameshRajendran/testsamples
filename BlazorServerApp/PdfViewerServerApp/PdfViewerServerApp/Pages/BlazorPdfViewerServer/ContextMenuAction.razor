@@ -1,0 +1,39 @@
+﻿@page "/ContextMenuAction"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+<SfButton @onclick="MenuActionRightClick">ContextMenuItems</SfButton>
+
+<SfPdfViewerServer @ref="viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath"
+    ContextMenuSettings="@contextMenuSetting">
+</SfPdfViewerServer>
+
+
+@code {
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+
+    PdfViewerContextMenuSettings contextMenuSetting = new PdfViewerContextMenuSettings
+        {
+            ContextMenuAction =Syncfusion.Blazor.PdfViewer.ContextMenuAction.None
+        };
+    
+    public void MenuActionRightClick(MouseEventArgs args)
+    {
+        contextMenuSetting = new PdfViewerContextMenuSettings
+            {
+                ContextMenuAction = Syncfusion.Blazor.PdfViewer.ContextMenuAction.RightClick
+            };
+    
+}
+
+
+}

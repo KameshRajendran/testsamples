@@ -1,0 +1,34 @@
+﻿@page "/AjaxRequestFailureEvent"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerEvents AjaxRequestFailed="Ajax" />
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void Ajax(AjaxRequestFailureEventArgs value)
+
+    {
+
+        ResultString = "";
+
+        ResultString = " Action: " + value.Action + " " + " DocumentName: " + value.DocumentName + " ErrorMessage: " + value.ErrorMessage + " ErrorStatusCode: " + value.ErrorStatusCode;
+
+    }
+}

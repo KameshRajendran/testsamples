@@ -1,0 +1,36 @@
+﻿@page "/Annotationadd-events"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%" EnableShapeLabel=true>
+    <PdfViewerEvents AnnotationAdded="Annotationadd" />
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void Annotationadd(AnnotationAddEventArgs value)
+
+    {
+
+        ResultString = "";
+
+        ResultString = "EventName: " + value.Name + "  Annoatation-Type:" + value.AnnotationType + " " + "  AuthorValue: " + value.AnnotationProperties.Author + " " + "  Bordercolor:" + value.AnnotationProperties.BorderColor + "  BoderWidth:" + value.AnnotationProperties.BorderWidth + "  Textmarkup-color" + value.AnnotationProperties.Color + "   DefaultText" + value.AnnotationProperties.DefaultText + " FillColor: " + value.AnnotationProperties.FillColor + " FontColor: " + value.AnnotationProperties.FontColor + "  FontFamily: " + value.AnnotationProperties.FontFamily + " FontSize: " + value.AnnotationProperties.FontSize + "  FontStyle: " + value.AnnotationProperties.FontStyle + "  Height:" + value.AnnotationProperties.Height + "  Annotation ID:" + value.AnnotationId +
+          "   LineHeadStart: " + value.AnnotationProperties.LineHeadStart + "  LineHeadEnd: " + value.AnnotationProperties.LineHeadEnd + "  Modified-Date:" + value.AnnotationProperties.ModifiedDate + "  Opacity:" + value.AnnotationProperties.Opacity + "  Subject:" + value.AnnotationProperties.Subject + "  TextAlignment:" + value.AnnotationProperties.TextAlignment + "  Markup content: " + value.AnnotationProperties.TextMarkupContent + "   Start index: " + value.AnnotationProperties.TextMarkupStartIndex + "  End index: " + value.AnnotationProperties.TextMarkupEndIndex + "  Thickness:" + value.AnnotationProperties.Thickness + " IsLock: " + value.AnnotationProperties.IsLock + " Bound-Height: " + value.Bound.Height + " Bound-Width: " + value.Bound.Width + " Bound-Left: " + value.Bound.Left + " Bound-Top: " + value.Bound.Top + " Custom-Stamp:" + value.CustomStampName ;
+
+     
+    }
+}
