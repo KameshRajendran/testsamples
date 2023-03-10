@@ -1,0 +1,43 @@
+﻿@page "/Bound"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="80%" Height="80%">
+    <PdfViewerEvents AnnotationAdded="Signature" />
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+    double BoundHeight;
+    double BoundWidth;
+    double BoundX;
+    double BoundY;
+    double BoundTop;
+    double BoundLeft;
+    double BoundRight;
+    double BoundBottom;
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+
+
+    public void Signature(AnnotationAddEventArgs value)
+    {
+        ResultString = " Bound-Height: " + value.Bound.Height + " Bound-Width: " + value.Bound.Width + " Bound-Left: " + value.Bound.Left + " Bound-Top: " + value.Bound.Top + " Bound-Y: " + value.Bound.Y  + " Bound-X: " + value.Bound.X;
+   }
+
+
+
+
+}

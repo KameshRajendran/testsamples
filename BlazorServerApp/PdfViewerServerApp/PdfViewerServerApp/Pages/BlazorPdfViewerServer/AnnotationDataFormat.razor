@@ -1,0 +1,38 @@
+﻿@page "/AnnotationData-Format"
+
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+<SfButton OnClick="ExportAnnotationJson">ExportAnnotationJson</SfButton>
+
+
+<SfButton OnClick="ExportAnnotationXFDF">ExportAnnotationXFDF</SfButton>
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerFreeTextSettings ></PdfViewerFreeTextSettings>
+
+</SfPdfViewerServer>
+
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+
+    SfPdfViewerServer? viewer;
+
+
+    public void ExportAnnotationJson()
+    {
+        viewer.ExportAnnotationAsync(Syncfusion.Blazor.PdfViewer.AnnotationDataFormat.Json);
+
+    }
+    public void ExportAnnotationXFDF()
+    {
+        viewer.ExportAnnotationAsync(Syncfusion.Blazor.PdfViewer.AnnotationDataFormat.Xfdf);
+
+    }
+
+}

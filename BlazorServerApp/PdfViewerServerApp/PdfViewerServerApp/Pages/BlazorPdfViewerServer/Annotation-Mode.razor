@@ -1,0 +1,31 @@
+﻿@page "/Annotation-Mode"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerEvents AnnotationUnselected="AnnotationMode" />
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void AnnotationMode(AnnotationUnselectEventArgs value)
+
+    {
+
+        ResultString = " Annotation-Mode: " + value.Annotation.AnnotationMode;
+    }
+}
