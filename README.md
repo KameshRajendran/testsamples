@@ -27,5 +27,15 @@
 |21| https://localhost:7134/AnnotationUnselect-event | AnnotationUnselectEvent.razor | Naveen Kumar | Yes | --- |
 |22| https://localhost:7134/Bound | Bound.razor | Naveen Kumar | Yes | ---|
 |23| https://localhost:7134/ContextMenuAction | ContextMenuAction.razor | Naveen Kumar | Yes | --- |
+|24| https://localhost:7134/CursorTypeCheck | CursorTypeCheck.razor | Abishek Roy | No | 1) Have created the sample but don't know the functionality|
+|25| https://localhost:7134/DisplayModeType | DisplayModeType.razor | Abishek Roy | Yes | 1) when type/upload mode is enabled, the draw mode is visible along with it|
+|26| https://localhost:7134/DownloadEndEventType | DownloadEndEventType.razor | Abishek Roy | Yes | 1) DownloadEndEventArgs is not getting triggered when download has ended|
+|27| https://localhost:7134/DownloadStartEventType | DownloadStartEventType.razor | Abishek Roy | Yes | - |
+|28| https://localhost:7134/ExportFailureEventType | ExportFailureEventType.razor | Abishek Roy | No| 1) Have created sample but don't know how to check the functionality|
+|29| https://localhost:7134/ExportStartEventType | ExportStartEventType.razor | Abishek Roy | Yes | - |
+|30| https://localhost:7134/ExportSuccessEventType | ExportSuccessEventType.razor | Abishek Roy | Yes |-|
+|31| https://localhost:7134/ExtractTextCompleteEventType | ExtractTextCompleteEventType.razor | Abishek Roy | No | 1) Have created the sample but no idea on how to test it|
+|32| https://localhost:7134/DynamicStampItemType | DynamicStampItemType.razor | Yes | - |
+|33| https://localhost:7134/DocumentInfoType | DocumentInfoType.razor | No | Don't know how to create sample |
 
 

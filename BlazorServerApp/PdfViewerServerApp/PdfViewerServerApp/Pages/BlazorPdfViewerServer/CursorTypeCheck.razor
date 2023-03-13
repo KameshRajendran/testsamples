@@ -1,0 +1,306 @@
+@page "/CursorTypeCheck"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="1060px" Height="500px" StampSettings="@stampSettings">
+</SfPdfViewerServer>
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+<form name="form1" id="form1">
+            <select @onchange="stopMouseHover">
+                <option value="" selected="selected"></option>
+                <option value="cursorTypeAuto">Auto</option>
+                <option value="cursorTypeCrossHair">Cross Hair</option>
+                <option value="cursorType_E_resize">E_resize</option>
+                <option value="cursorType_EW_resize">EW_resize</option>
+                <option value="cursorTypeGrab">Grab</option>
+                <option value="cursorTypeGrabbing">Grabbing</option>
+                <option value="cursorTypeMove">Move</option>
+                <option value="cursorType_N_resize">N_resize</option>
+                <option value="cursorType_Ne_resize">Ne_resize</option>
+                <option value="cursorType_Ns_resize">Ns_resize</option>
+                <option value="cursorType_Nw_resize">Nw_resize</option>
+                <option value="cursorTypepointer">Pointer</option>
+                <option value="cursorType_S_resize">S_resize</option>
+                <option value="cursorType_Se_resize">Se_resize</option>
+                <option value="cursorType_Sw_resize">Sw_resize</option>
+                <option value="cursorType_text">Text</option>
+                <option value="cursorType_W_resize">W_resize</option>
+          
+            </select>
+            </form>
+
+@code{
+    SfPdfViewerServer viewer;
+
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public static double[]? borderValue { get; set; } = { 10, 21, 4, 34, 52 };
+    public static PdfViewerAnnotationSelectorSettings selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Grabbing, SelectorLineDashArray = borderValue };
+
+    public PdfViewerStampSettings stampSettings = new PdfViewerStampSettings
+        {
+            Author = "Arrow Settings Arrow End",
+            AnnotationSelectorSettings = selectorSettings
+        };
+
+     void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "cursorTypeAuto":
+               cursorTypeAuto();
+                break;
+            case "cursorTypeCrossHair":              
+                cursorTypeCrossHair();
+                break;
+            case "cursorType_E_resize":              
+                cursorType_E_resize();
+                break;
+            case "cursorType_EW_resize":              
+                cursorType_EW_resize();
+                break;
+            case "cursorTypeGrab":              
+                cursorTypeGrab();
+                break;
+            case "cursorTypeGrabbing":              
+                cursorTypeGrabbing();
+                break;
+            case "cursorTypeMove":              
+                cursorTypeMove();
+                break;
+            case "cursorType_N_resize":              
+                cursorType_N_resize();
+                break;
+            case "cursorType_Ne_resize":              
+                cursorType_Ne_resize();
+                break;
+            case "cursorType_Ns_resize":              
+                cursorType_Ns_resize();
+                break;
+            case "cursorType_Nw_resize":              
+                cursorType_Nw_resize();
+                break;
+            case "cursorTypepointer":              
+                cursorTypepointer();
+                break;
+            case "cursorType_S_resize":              
+                cursorType_S_resize();
+                break;
+            case "cursorType_Se_resize":              
+                cursorType_Se_resize();
+                break;
+            case "cursorType_Sw_resize":              
+                cursorType_Sw_resize();
+                break;
+            case "cursorType_text":              
+                cursorType_text();
+                break;
+            case "cursorType_W_resize":              
+                cursorType_W_resize();
+                break;
+           
+
+        }
+    }
+
+    public void cursorTypeAuto()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Auto };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading ="Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+        
+        ValueHeadings = "";
+    }
+    
+    public void cursorTypeCrossHair()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.CrossHair };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_E_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.E_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_EW_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Ew_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorTypeGrab()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Grab };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorTypeGrabbing()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Grabbing };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorTypeMove()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Move };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_N_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.N_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_Ne_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Ne_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_Ns_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Ns_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_Nw_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Nw_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    
+    public void cursorType_S_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.S_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_Se_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Se_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_Sw_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Sw_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_W_resize()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.W_resize };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorTypepointer()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Pointer };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+       headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+    public void cursorType_text()
+    {
+        selectorSettings = new PdfViewerAnnotationSelectorSettings { ResizerCursorType = CursorType.Text };
+        stampSettings = new PdfViewerStampSettings { AnnotationSelectorSettings = selectorSettings };
+        heading = "Selector Resizer Shape: ";
+        headingValue = viewer!.StampSettings.AnnotationSelectorSettings.ResizerCursorType.ToString();
+        ValueHeading = "";
+
+        ValueHeadings = "";
+    }
+
+
+    
+
+        
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+}

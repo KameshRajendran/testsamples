@@ -1,0 +1,46 @@
+@page "/ExportSuccessEventType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+
+        <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%">
+
+    <PdfViewerEvents ExportSucceed="onExportSucceed"/>
+
+           
+
+        </SfPdfViewerServer>
+        <div>
+            @ResultString
+        </div>
+    
+  
+
+@code {
+
+
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    private string ResultString = "";
+    bool stopMouseOver = false;
+
+    public SfPdfViewerServer viewer { get; set; }
+
+
+
+    
+    public void onExportSucceed(ExportSuccessEventArgs value)
+    {
+
+
+        ResultString = $"Name: {value.Name}    FileName: {value.FileName}";
+    }
+
+  
+    
+}
