@@ -1,0 +1,69 @@
+@page "/DynamicStampItemType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath"
+                   StampSettings="@stampSettings">
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+    <select @onchange="stopMouseHover">
+        <option value="" selected="selected"></option>
+        <option value="dynamicStampApproved">Approved</option>
+        
+
+    </select>
+</form>
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    public static int[]? borderValue { get; set; } = { 10, 21, 14, 34, 52 };
+
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "dynamicStampApproved":
+                dynamicStampApproved();
+                break;
+           
+
+
+        }
+    }
+    public List<AllowedInteraction> allowedInteractions = new List<AllowedInteraction>
+    {
+        AllowedInteraction.Select
+    };
+    public PdfViewerStampSettings stampSettings = new PdfViewerStampSettings
+        {
+            IsLock = false,
+            IsPrint = true,
+            SkipDownload = true,
+            SkipPrint = true,
+            CustomData = "Custom Data value",
+            BorderDashArray = borderValue
+        };
+   
+    public void dynamicStampApproved()
+    {
+        stampSettings = new PdfViewerStampSettings { CustomData = "Pdf Viewers Stamp Settings options", DynamicStamps = new List<DynamicStampItem>() { DynamicStampItem.Approved } };
+        heading = "Custom Data: ";
+        headingValue = Viewer!.StampSettings.CustomData.ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+    
+}
