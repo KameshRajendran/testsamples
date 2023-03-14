@@ -1,0 +1,50 @@
+@page "/LoadEventArgsType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+
+        <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%">
+
+    <PdfViewerEvents DocumentLoaded=@onDocumentLoaded />
+
+           
+
+        </SfPdfViewerServer>
+        <div>
+            @ResultString
+        </div>
+    
+   
+
+
+@code {
+
+
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    private string ResultString = "";
+    bool stopMouseOver = false;
+
+    public SfPdfViewerServer viewer { get; set; }
+
+
+
+    public void onDocumentLoaded(LoadEventArgs value)
+    {
+        ResultString = $"DocumentName: {value.DocumentName}    PageCount: {value.PageData.PageCount}   PageSize: {value.PageData.PageSizes[0]}";
+    }
+
+
+
+
+   
+
+    
+  
+    
+}

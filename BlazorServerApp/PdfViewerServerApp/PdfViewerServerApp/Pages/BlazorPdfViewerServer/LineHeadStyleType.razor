@@ -1,0 +1,130 @@
+@page "/LineHeadStyleType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath" EnableShapeAnnotation=true>
+    <PdfViewerLineSettings LineHeadEndStyle="@val" LineHeadStartStyle="@val" Author="LineAnnotation" StrokeColor="#03a9f4ff" Opacity=0.8 Thickness=3></PdfViewerLineSettings>
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+    <select @onchange="stopMouseHover">
+        <option value="" selected="selected"></option>
+        <option value="lineHeadStyleArrow">Arrow</option>
+        <option value="lineHeadStyleClosed">Closed</option>
+        <option value="lineHeadStyleClosedArrow">Closed Arrow</option>
+        <option value="lineHeadStyleDiamond">Diamond</option>
+        <option value="lineHeadStyleOpen">Open</option>
+        <option value="lineHeadStyleOpenArrow">Open Arrow</option>
+        <option value="lineHeadStyleRound">Round</option>
+        <option value="lineHeadStyleSquare">Square</option>
+        <option value="lineHeadStyleNone">None</option>
+        
+
+
+    </select>
+</form>
+
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    public LineHeadStyle val = LineHeadStyle.Arrow;
+    public int[]? borderValue { get; set; } = { 10, 21, 18, 34, 52 };
+    
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "lineHeadStyleArrow":
+                lineHeadStyleArrow();
+                break;
+            case "lineHeadStyleClosed":
+                lineHeadStyleClosed();
+                break;
+            case "lineHeadStyleClosedArrow":
+                lineHeadStyleClosedArrow();
+                break;
+            case "lineHeadStyleDiamond":
+                lineHeadStyleDiamond();
+                break;
+            case "lineHeadStyleOpen":
+                lineHeadStyleOpen();
+                break;
+            case "lineHeadStyleRound":
+                lineHeadStyleRound();
+                break;
+            case "lineHeadStyleSquare":
+                lineHeadStyleSquare();
+                break;
+            case "lineHeadStyleOpenArrow":
+                lineHeadStyleOpenArrow();
+                break;
+            case "lineHeadStyleNone":
+                lineHeadStyleNone();
+                break;
+
+
+        }
+    }
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+    //DocumentInfo value = new DocumentInfo();
+
+    public void lineHeadStyleArrow()
+    {
+        val = LineHeadStyle.Arrow;
+    }
+
+    public void lineHeadStyleClosed()
+    {
+        val = LineHeadStyle.Closed;
+    }
+
+    public void lineHeadStyleClosedArrow()
+    {
+        val = LineHeadStyle.ClosedArrow;
+    }
+
+    public void lineHeadStyleDiamond()
+    {
+        val = LineHeadStyle.Diamond;
+    }
+
+    public void lineHeadStyleOpen()
+    {
+        val = LineHeadStyle.Open;
+    }
+
+    public void lineHeadStyleOpenArrow()
+    {
+        val = LineHeadStyle.OpenArrow;
+    }
+
+    public void lineHeadStyleRound()
+    {
+        val = LineHeadStyle.Round;
+    }
+
+    public void lineHeadStyleSquare()
+    {
+        val = LineHeadStyle.Square;
+    }
+
+    public void lineHeadStyleNone()
+    {
+        val = LineHeadStyle.None;
+    }
+
+    
+   
+}

@@ -1,0 +1,76 @@
+@page "/LinkTargetType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath" HyperlinkOpenState=@val>
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+    <select @onchange="stopMouseHover">
+        <option value="" selected="selected"></option>
+        <option value="linkTargetCurrentTab">Current Tab</option>
+        <option value="linkTargetNewTab">New Tab</option>
+        <option value="linkTargetNewWindow">New Window</option>
+        
+
+
+    </select>
+</form>
+
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    public LinkTarget val = LinkTarget.CurrentTab;
+    public int[]? borderValue { get; set; } = { 10, 21, 18, 34, 52 };
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "linkTargetCurrentTab":
+                linkTargetCurrentTab();
+                break;
+            case "linkTargetNewTab":
+                linkTargetNewTab();
+                break;
+            case "linkTargetNewWindow":
+                linkTargetNewWindow();
+                break;
+
+
+        }
+        StateHasChanged();
+    }
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+
+
+    public void linkTargetCurrentTab()
+    {
+        val = LinkTarget.CurrentTab;
+        StateHasChanged();
+    }
+
+    public void linkTargetNewTab()
+    {
+        val = LinkTarget.NewTab;
+        StateHasChanged();
+    }
+
+    public void linkTargetNewWindow()
+    {
+        val = LinkTarget.NewWindow;
+        StateHasChanged();
+    }
+   
+}
