@@ -1,0 +1,35 @@
+﻿@page "/ContextMenuItem"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+<SfPdfViewerServer @ref="viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath">
+    
+       <PdfViewerContextMenuSettings ContextMenuItems="@ContextMenuItems"></PdfViewerContextMenuSettings>
+</SfPdfViewerServer>
+
+
+@code {
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+
+
+
+    public List<Syncfusion.Blazor.PdfViewer.ContextMenuItem> ContextMenuItems = new List<Syncfusion.Blazor.PdfViewer.ContextMenuItem>
+        {
+           Syncfusion.Blazor.PdfViewer.ContextMenuItem.Cut ,
+
+           Syncfusion.Blazor.PdfViewer.ContextMenuItem.Copy,
+
+           Syncfusion.Blazor.PdfViewer.ContextMenuItem.Paste
+
+        };
+
+}

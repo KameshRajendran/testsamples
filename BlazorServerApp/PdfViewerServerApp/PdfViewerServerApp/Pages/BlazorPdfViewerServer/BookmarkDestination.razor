@@ -1,0 +1,36 @@
+﻿@page "/bookmark-item"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%" EnableBookmarkPanel=true>
+
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+    public double X { get; set; }
+    public double Y { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    private string ResultString;
+    SfPdfViewerServer? viewer { get; set; }
+    //public void BookMark(BookmarkDestination e)
+    //{
+
+
+    //    BookmarkDestination Bookmark = new BookmarkDestination();
+    //    Bookmark.Y = 5;
+    //    Bookmark.X = 5;
+
+    //}
+
+    public void book(Syncfusion.Blazor.PdfViewer.Bookmark e)
+    {
+        ResultString = " X:" + e.Destination + " Title:" + e.Title + "ID" + e.Id;
+    }
+}

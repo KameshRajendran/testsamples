@@ -1,0 +1,33 @@
+﻿@page "/ImportStartEvent"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerEvents ImportStarted="ImportStart"></PdfViewerEvents>
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void ImportStart(ImportStartEventArgs value)
+
+    {
+
+        ResultString = "";
+
+        ResultString =  " Event-Name:" + value.Name;
+    }
+}

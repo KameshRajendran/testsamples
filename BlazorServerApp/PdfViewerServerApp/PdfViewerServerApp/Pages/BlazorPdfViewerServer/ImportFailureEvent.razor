@@ -1,0 +1,35 @@
+﻿@page "/ImportFailureEvent"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerEvents ImportFailed="ImportFailure"></PdfViewerEvents>
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void ImportFailure(ImportFailureEventArgs value)
+
+    {
+
+        ResultString = "";
+
+        ResultString = " Event-Name:" + value.Name + " Error-Details:" + value.ErrorDetails;
+    }
+
+
+}
