@@ -7,10 +7,10 @@
 |  1   |https://localhost:7134/Action |Action.razor| Naveen Kumar| No |  Don't know how to create a sample|
 |  2   |https://localhost:7134/addsignature-events |AddSignatureEvent.razor| Naveen Kumar| Yes |-- |
 |  3   |AjaxHeader|AjaxHeader| Naveen Kumar| No | This is applicable only for web assemly projects.|
-|  4   |https://localhost:7134/AjaxRequestFailureEvent |AjaxRequestFailureEvent.razor| Naveen Kumar| No | Don't know how to create a sample |
+|  4   |https://localhost:7134/AjaxRequestFailureEvent |AjaxRequestFailureEvent.razor| Naveen Kumar| yes | sample created but Dont know how to trigger the function|
 | 5|https://localhost:7134/Annotation-Interaction |Allowed-Interaction.razor| Naveen kumar | Yes| AllowedInteraction.Select and AllowedInteraction.Property change always trigger without allow| |
 |6| https://localhost:7134/Annotationadd-events| AnnotationAdd-Event.razor | Naveen Kumar | Yes |--  |
-|7| https://localhost:7134/AnnotationBaseEvent| AnnotationBaseEvent.razor | Naveen Kumar | No | Protected class Dont know hoe to create a sample |
+|7| https://localhost:7134/AnnotationBaseEvent| AnnotationBaseEvent.razor | Naveen Kumar | Yes | --|
 |8|https://localhost:7134/AnnotationData-Format|AnnotationDataFormat.razor| Naveen Kumar | Yes|--| 
 |9 | https://localhost:7134/AnnotationDoubleclick-events|AnnotationDoubleclickEvent.razor| Naveen Kumar | Yes |  --|
 |10 | https://localhost:7134/Annotation-Mode|Annotation-Mode.razor| Naveen Kumar | Yes | Triggers for already existing annotation value as imported  |
@@ -25,28 +25,44 @@
 |19| https://localhost:7134/AnnotationRemoveEventType | AnnotationRemoveEventType.razor | Abishek | Yes | 1) Bounds throw null reference 2) MultiplePageCollection throws null reference |
 |20| https://localhost:7134/AnnotationToolbarItem | AnnotationToolbarItem.razor | Abishek | No | Don't know how to create sample |
 |21| https://localhost:7134/AnnotationUnselect-event | AnnotationUnselectEvent.razor | Naveen Kumar | Yes | --- |
-|22| https://localhost:7134/Bound | Bound.razor | Naveen Kumar | Yes | ---|
-|23| https://localhost:7134/ContextMenuAction | ContextMenuAction.razor | Naveen Kumar | Yes | --- |
-|24| https://localhost:7134/CursorTypeCheck | CursorTypeCheck.razor | Abishek Roy | No | 1) Have created the sample but don't know the functionality|
-|25| https://localhost:7134/DisplayModeType | DisplayModeType.razor | Abishek Roy | Yes | 1) when type/upload mode is enabled, the draw mode is visible along with it|
-|26| https://localhost:7134/DownloadEndEventType | DownloadEndEventType.razor | Abishek Roy | Yes | 1) DownloadEndEventArgs is not getting triggered when download has ended|
-|27| https://localhost:7134/DownloadStartEventType | DownloadStartEventType.razor | Abishek Roy | Yes | - |
-|28| https://localhost:7134/ExportFailureEventType | ExportFailureEventType.razor | Abishek Roy | No| 1) Have created sample but don't know how to check the functionality|
-|29| https://localhost:7134/ExportStartEventType | ExportStartEventType.razor | Abishek Roy | Yes | - |
-|30| https://localhost:7134/ExportSuccessEventType | ExportSuccessEventType.razor | Abishek Roy | Yes |-|
-|31| https://localhost:7134/ExtractTextCompleteEventType | ExtractTextCompleteEventType.razor | Abishek Roy | No | 1) Have created the sample but no idea on how to test it|
-|32| https://localhost:7134/DynamicStampItemType | DynamicStampItemType.razor |Abishek Roy |Yes | - |
-|33| https://localhost:7134/DocumentInfoType | DocumentInfoType.razor |Abishek Roy| Yes | - |
-|34| https://localhost:7134/InteractionModeType | InteractionModeType.razor |Abishek Roy| Yes | - |
-|35| https://localhost:7134/LineHeadStyleType | LineHeadStyleType.razor |Abishek Roy| Yes | - |
-|36| https://localhost:7134/LinkTargetType | LinkTargetType.razor |Abishek Roy| Yes | 1) Each time to change the target type, need to refresh the page |
-|37| https://localhost:7134/LoadEventArgsType| LoadEventArgsType.razor | Abishek Roy|Yes | - |
-|38| https://localhost:7134/LoadFailedEventArgsType | LoadFailedEventArgsType.razor |Abishek Roy| Yes | - |
-|39| https://localhost:7134/MoveSignatureEventArgsType | MoveSignatureEventArgsType.razor |Abishek Roy| Yes | Bound.PreviousPosition.X and Y are not getting triggered |
-|40| https://localhost:7134/PageChangeEventArgsType | PageChangeEventArgsType.razor |Abishek Roy | Yes | - |
-|41| https://localhost:7134/PageClickEventArgsType | PageClickEventArgsType.razor |Abishek Roy| Yes | - |
-|42| https://localhost:7134/PageMouseOverEventArgsType | PageMouseOverEventArgsType.razor |Abishek Roy| Yes | - |
-|43| https://localhost:7134/PageTextContentType | PageTextContentType.razor |Abishek Roy| No| Don't know how to create sample|
-
+|22| https://localhost:7134/BaseEventArgs | BaseEventArgs.razor | Naveen Kumar | Yes | ---|
+|23| https://localhost:7134/Bookmark | Bookmark.razor | Naveen Kumar | No | Don't Know how to create a sample |
+|24| https://localhost:7134/BookmarkDestination | BookmarkDestination.razor | Naveen Kumar | No | Don't Know how to create a sample |
+|25| https://localhost:7134/Boderstyle | Boderstyle.razor | Naveen Kumar | Yes | --- |
+|26| https://localhost:7134/Bound | Bound.razor | Naveen Kumar | Yes | --- |
+|27| https://localhost:7134/CalibrateUnit | CalibrateUnit.razor | Naveen Kumar | Yes | --- |
+|28| https://localhost:7134/Comment | Comment.razor | Naveen Kumar | No | Don't Know how to create a sample |
+|29| https://localhost:7134/ContextMenuAction | ContextMenuAction.razor | Naveen Kumar | Yes | --- |
+|30| https://localhost:7134/ContextMenuItem | ContextMenuItem.razor | Naveen Kumar | Yes | --- |
+|31| https://localhost:7134/CursorTypeCheck | CursorTypeCheck.razor | Abishek Roy | No | 1) Have created the sample but don't know the functionality|
+|32| https://localhost:7134/DisplayModeType | DisplayModeType.razor | Abishek Roy | Yes | 1) when type/upload mode is enabled, the draw mode is visible along with it|
+|33| https://localhost:7134/DownloadEndEventType | DownloadEndEventType.razor | Abishek Roy | Yes | 1) DownloadEndEventArgs is not getting triggered when download has ended|
+|34| https://localhost:7134/DownloadStartEventType | DownloadStartEventType.razor | Abishek Roy | Yes | - |
+|35| https://localhost:7134/ExportFailureEventType | ExportFailureEventType.razor | Abishek Roy | No| 1) Have created sample but don't know how to check the functionality|
+|36| https://localhost:7134/ExportStartEventType | ExportStartEventType.razor | Abishek Roy | Yes | - |
+|37| https://localhost:7134/ExportSuccessEventType | ExportSuccessEventType.razor | Abishek Roy | Yes |-|
+|38| https://localhost:7134/ExtractTextCompleteEventType | ExtractTextCompleteEventType.razor | Abishek Roy | No | 1) Have created the sample but no idea on how to test it|
+|39| https://localhost:7134/DynamicStampItemType | DynamicStampItemType.razor |Abishek Roy |Yes | - |
+|40| https://localhost:7134/DocumentInfoType | DocumentInfoType.razor |Abishek Roy| Yes | - |
+|41| https://localhost:7134/InteractionModeType | InteractionModeType.razor |Abishek Roy| Yes | - |
+|42| https://localhost:7134/LineHeadStyleType | LineHeadStyleType.razor |Abishek Roy| Yes | - |
+|43| https://localhost:7134/LinkTargetType | LinkTargetType.razor |Abishek Roy| Yes | 1) Each time to change the target type, need to refresh the page |
+|44| https://localhost:7134/LoadEventArgsType| LoadEventArgsType.razor | Abishek Roy|Yes | - |
+|45| https://localhost:7134/LoadFailedEventArgsType | LoadFailedEventArgsType.razor |Abishek Roy| Yes | - |
+|46| https://localhost:7134/MoveSignatureEventArgsType | MoveSignatureEventArgsType.razor |Abishek Roy| Yes | Bound.PreviousPosition.X and Y are not getting triggered |
+|47| https://localhost:7134/PageChangeEventArgsType | PageChangeEventArgsType.razor |Abishek Roy | Yes | - |
+|48| https://localhost:7134/PageClickEventArgsType | PageClickEventArgsType.razor |Abishek Roy| Yes | - |
+|49| https://localhost:7134/PageMouseOverEventArgsType | PageMouseOverEventArgsType.razor |Abishek Roy| Yes | - |
+|50| https://localhost:7134/PageTextContentType | PageTextContentType.razor |Abishek Roy| No| Don't know how to create sample|
+|51| https://localhost:7134/Fontstyle | Fontstyle.razor | Naveen Kumar | Yes | --- |
+|52| https://localhost:7134/FormFieldClick | FormField.razor | Naveen Kumar | Yes | --- |
+|53| https://localhost:7134/FormFieldClickevent | FormFieldClickevent.razor | Naveen Kumar | Yes | --- |
+|54| https://localhost:7134/FormFieldDataFormat | FormFieldDataFormat.razor | Naveen Kumar | Yes | --- |
+|55| https://localhost:7134/FormFieldType | FormFieldType.razor | Naveen Kumar | Yes | --- |
+|56| https://localhost:7134/HyperlinkClick | HyperlinkClick.razor | Naveen Kumar | Yes | --- |
+|57| https://localhost:7134/HyperlinkMouseOver | HyperlinkMouseOver.razor | Naveen Kumar | Yes | --- |
+|58| https://localhost:7134/ImportFailureEvent | ImportFailureEvent.razor | Naveen Kumar | Yes | --- |
+|59| https://localhost:7134/ImportStartEvent | ImportStartEvent.razor | Naveen Kumar | Yes | --- |
+|60| https://localhost:7134/ImportSuccessEvent | ImportSuccessEvent.razor | Naveen Kumar | Yes | --- |
 
 

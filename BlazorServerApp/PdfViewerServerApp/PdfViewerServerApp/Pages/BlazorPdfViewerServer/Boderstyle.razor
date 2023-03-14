@@ -1,0 +1,56 @@
+﻿@page "/Boderstyle"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+<SfButton @onclick="BorderStyleSolid">Border Style Solid</SfButton>
+<SfButton @onclick="BorderStyleThin">Border Style Thin</SfButton>
+<SfButton @onclick="BorderStyleThick">Border Style Thick</SfButton>
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%"
+                   FreeTextSettings="@FreeTextSettings">
+
+</SfPdfViewerServer>
+
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+
+    PdfViewerFreeTextSettings FreeTextSettings = new PdfViewerFreeTextSettings { BorderStyle = "Solid", BorderColor = "Blue" };
+    public void BorderStyleSolid(MouseEventArgs args)
+    {
+        FreeTextSettings = new PdfViewerFreeTextSettings { BorderStyle = "Solid", BorderColor = "Red" };
+        heading = "Border Style: ";
+        headingValue = FreeTextSettings.BorderStyle.ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+    public void BorderStyleThin(MouseEventArgs args)
+    {
+        FreeTextSettings = new PdfViewerFreeTextSettings { BorderStyle = "Thin", BorderColor = "Red" };
+        heading = "Border Style: ";
+        headingValue = FreeTextSettings.BorderStyle.ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+    public void BorderStyleThick(MouseEventArgs args)
+    {
+        FreeTextSettings = new PdfViewerFreeTextSettings { BorderStyle = "Thick", BorderColor = "Red" };
+        heading = "Border Style: ";
+        headingValue = FreeTextSettings.BorderStyle.ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+}

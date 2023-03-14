@@ -1,0 +1,140 @@
+﻿@page "/FormFieldDataFormat"
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using System.Text
+
+
+
+        <SfPdfViewerServer @ref="PdfViewer" DocumentPath="@DocumentPath"  Height="100%" Width="100%">
+
+        </SfPdfViewerServer>
+        <div>
+            <form name="form1" id="form1">
+                <select @onchange="exportAnnotations">
+                    <option value=""></option>
+                    <option value="exportAnnotationJson">Export As JSON</option>
+                    <option value="importAnnotationJson">Import As JSON</option>
+                    <option value="exportAnnotationXfdf">Export As XFDF</option>
+                    <option value="importAnnotationXfdf">Import As XFDF</option>
+                    <option value="exportAnnotationfdf">Export As FDF</option>
+                    <option value="importAnnotationfdf">Import As FDF</option>
+                    <option value="exportAnnotationXML">Export As XML</option>
+                    <option value="importAnnotationXML">Import As XML</option>
+
+
+                </select>
+            </form>
+
+        </div>
+   
+
+
+
+@code {
+
+    Stream streamJson;
+    Stream streamXfdf;
+    Stream streamFdf;
+    Stream streamXml;
+    Dictionary<string, string> stream;
+
+    void exportAnnotations(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "exportAnnotationJson":
+                ExportAnnotationsAsJson();
+                break;
+
+            case "importAnnotationJson":
+                ImportAnnotationsAsJson();
+                break;
+
+            case "exportAnnotationXfdf":
+                ExportAnnotationsAsXfdf();
+                break;
+
+            case "importAnnotationXfdf":
+                ImportAnnotationsAsXfdf();
+                break;
+            case "exportAnnotationfdf":
+                ExportAnnotationsAsfdf();
+                break;
+
+            case "importAnnotationfdf":
+                ImportAnnotationsAsfdf();
+                break;
+            case "exportAnnotationXML":
+                ExportAnnotationsAsXml();
+                break;
+
+            case "importAnnotationXML":
+                ImportAnnotationsAsXml();
+                break;
+           
+
+        }
+        StateHasChanged();
+    }
+    public SfPdfViewerServer? PdfViewer { get; set; }
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+    //string ?_annotations;
+
+
+
+
+
+    public async void ExportAnnotationsAsJson()
+    {
+        // Export the form field data to JSON format stream.
+        streamJson = await PdfViewer.ExportFormFieldsAsync(Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Json);
+    }
+
+    public async void ImportAnnotationsAsJson()
+    {
+        // Import the form field data from the JSON format stream into the current PDF document.
+        await PdfViewer.ImportFormFieldsAsync(streamJson, Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Json);
+    }
+
+    public async void ExportAnnotationsAsXfdf()
+    {
+        // Export the form field data to XFDF format stream.
+        streamXfdf = await PdfViewer.ExportFormFieldsAsync(Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Xfdf);
+    }
+
+    public async void ImportAnnotationsAsXfdf()
+    {
+        // Import the form field data from the XFDF format stream into the current PDF document.
+        await PdfViewer.ImportFormFieldsAsync(streamXfdf, Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Xfdf);
+    }
+
+    public async void ExportAnnotationsAsfdf()
+    {
+        // Export the form field data to FDF format stream.
+        streamFdf = await PdfViewer.ExportFormFieldsAsync(Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Fdf);
+    }
+
+    public async void ImportAnnotationsAsfdf()
+    {
+        // Import the form field data from the FDF format stream into the current PDF document.
+        await PdfViewer.ImportFormFieldsAsync(streamFdf, Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Fdf);
+    }
+
+    public async void ExportAnnotationsAsXml()
+    {
+        // Export the form field data to XML format stream.
+        streamXml = await PdfViewer.ExportFormFieldsAsync(Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Xml);
+    }
+
+    public async void ImportAnnotationsAsXml()
+    {
+        // Import the form field data from the XML format stream into the current PDF document.
+        await PdfViewer.ImportFormFieldsAsync(streamXml,Syncfusion.Blazor.PdfViewer.FormFieldDataFormat.Xml);
+    }
+
+  
+
+}

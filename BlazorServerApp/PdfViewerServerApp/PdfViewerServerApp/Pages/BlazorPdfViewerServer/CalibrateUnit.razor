@@ -1,0 +1,30 @@
+﻿
+@page "/CalibrationUnit"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerMeasurementSettings DisplayUnit="CalibrationUnit.Mm" ></PdfViewerMeasurementSettings>
+    <PdfViewerContextMenuSettings></PdfViewerContextMenuSettings>
+
+</SfPdfViewerServer>
+
+
+@code {
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+
+
+
+}

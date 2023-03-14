@@ -1,0 +1,33 @@
+﻿@page "/FormFieldClickevent"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerEvents FormFieldClick="ClickEvent" />
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void ClickEvent(FormFieldClickArgs value)
+     
+    {
+
+        ResultString = "";
+
+        ResultString = " SignaturePanel: " + value.Cancel + " " +  " ,Value: " + value.Field.Value + " ,Type: " + value.Field.Type + " ,Name: " + value.Field.Name + " ,FormField-Id: " + value.Field.Id + " ,IsReadOnly: " + value.Field.IsReadOnly +" ,SignatureType:" + value.Field.SignatureType;
+    }
+}
