@@ -35,7 +35,18 @@
 |29| https://localhost:7134/ExportStartEventType | ExportStartEventType.razor | Abishek Roy | Yes | - |
 |30| https://localhost:7134/ExportSuccessEventType | ExportSuccessEventType.razor | Abishek Roy | Yes |-|
 |31| https://localhost:7134/ExtractTextCompleteEventType | ExtractTextCompleteEventType.razor | Abishek Roy | No | 1) Have created the sample but no idea on how to test it|
-|32| https://localhost:7134/DynamicStampItemType | DynamicStampItemType.razor | Yes | - |
-|33| https://localhost:7134/DocumentInfoType | DocumentInfoType.razor | No | Don't know how to create sample |
+|32| https://localhost:7134/DynamicStampItemType | DynamicStampItemType.razor |Abishek Roy |Yes | - |
+|33| https://localhost:7134/DocumentInfoType | DocumentInfoType.razor |Abishek Roy| Yes | - |
+|34| https://localhost:7134/InteractionModeType | InteractionModeType.razor |Abishek Roy| Yes | - |
+|35| https://localhost:7134/LineHeadStyleType | LineHeadStyleType.razor |Abishek Roy| Yes | - |
+|36| https://localhost:7134/LinkTargetType | LinkTargetType.razor |Abishek Roy| Yes | 1) Each time to change the target type, need to refresh the page |
+|37| https://localhost:7134/LoadEventArgsType| LoadEventArgsType.razor | Abishek Roy|Yes | - |
+|38| https://localhost:7134/LoadFailedEventArgsType | LoadFailedEventArgsType.razor |Abishek Roy| Yes | - |
+|39| https://localhost:7134/MoveSignatureEventArgsType | MoveSignatureEventArgsType.razor |Abishek Roy| Yes | Bound.PreviousPosition.X and Y are not getting triggered |
+|40| https://localhost:7134/PageChangeEventArgsType | PageChangeEventArgsType.razor |Abishek Roy | Yes | - |
+|41| https://localhost:7134/PageClickEventArgsType | PageClickEventArgsType.razor |Abishek Roy| Yes | - |
+|42| https://localhost:7134/PageMouseOverEventArgsType | PageMouseOverEventArgsType.razor |Abishek Roy| Yes | - |
+|43| https://localhost:7134/PageTextContentType | PageTextContentType.razor |Abishek Roy| No| Don't know how to create sample|
+
 
 

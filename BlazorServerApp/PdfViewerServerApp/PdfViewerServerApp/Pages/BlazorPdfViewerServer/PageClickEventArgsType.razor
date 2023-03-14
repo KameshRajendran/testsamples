@@ -1,4 +1,4 @@
-@page "/DocumentInfoType"
+@page "/PageClickEventArgsType"
 @using Syncfusion.Blazor.PdfViewerServer
 @using Syncfusion.Blazor.Buttons
 @using Syncfusion.Blazor.PdfViewer
@@ -9,7 +9,7 @@
 
         <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%">
 
-    <PdfViewerEvents DocumentLoaded=@onDocumentLoaded />
+    <PdfViewerEvents OnPageClick=@PageClickType/>
 
            
 
@@ -34,9 +34,10 @@
 
 
 
-    public void onDocumentLoaded(LoadEventArgs value)
+    public void PageClickType(PageClickEventArgs value)
     {
-        ResultString = $"DocumentName: {value.DocumentName}    PageCount: {value.PageData.PageCount}   PageSize: {value.PageData.PageSizes[0]}";
+
+        ResultString = $"DocumentName: {value.DocumentName}    PageNumber: {value.PageNumber}    PageX: {value.PageX}     PageY: {value.PageY}";
     }
 
 

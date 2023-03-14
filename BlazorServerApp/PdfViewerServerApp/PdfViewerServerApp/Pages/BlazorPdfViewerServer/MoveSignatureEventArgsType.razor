@@ -1,0 +1,50 @@
+@page "/MoveSignatureEventArgsType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+
+        <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%">
+
+    <PdfViewerEvents MoveSignature=@MoveSignature/>
+
+           
+
+        </SfPdfViewerServer>
+        <div>
+            @ResultString
+        </div>
+    
+   
+
+
+@code {
+
+
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    private string ResultString = "";
+    bool stopMouseOver = false;
+
+    public SfPdfViewerServer viewer { get; set; }
+
+
+
+    public void MoveSignature(MoveSignatureEventArgs value)
+    {
+        ResultString = $"Id: {value.Id}   PageNumeber: {value.PageNumber}   Name: {value.Name}   Bound.CurrentPosition.Height: {value.CurrentPosition.Height}   Bound.CurrentPosition.Width: {value.CurrentPosition.Width}   Bound.CurrentPosition.X: {value.CurrentPosition.X}   Bound.CurrentPosition.Y: {value.CurrentPosition.Y}    Opacity:{value.Opacity}    Bound.PreviousPosition.Height: {value.PreviousPosition.Height}    Bound.PreviousPosition.Width: {value.PreviousPosition.Width}     Bound.PreviousPosition.X: {value.PreviousPosition.X}      Bound.PreviousPosition.Y: {value.PreviousPosition.Y}   StrokeColor: {value.StrokeColor}      Thickness: {value.Thickness} ";
+    }
+
+
+
+
+   
+
+    
+  
+    
+}

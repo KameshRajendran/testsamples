@@ -1,4 +1,4 @@
-@page "/DocumentInfoType"
+@page "/PageTextContentType"
 @using Syncfusion.Blazor.PdfViewerServer
 @using Syncfusion.Blazor.Buttons
 @using Syncfusion.Blazor.PdfViewer
@@ -9,7 +9,7 @@
 
         <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%">
 
-    <PdfViewerEvents DocumentLoaded=@onDocumentLoaded />
+    <PdfViewerEvents ExtractTextCompleted=@onExtractTextComplete/>
 
            
 
@@ -18,8 +18,7 @@
             @ResultString
         </div>
     
-   
-
+  
 
 @code {
 
@@ -34,17 +33,14 @@
 
 
 
-    public void onDocumentLoaded(LoadEventArgs value)
+    
+    public void onExtractTextComplete(ExtractTextCompletedEventArgs value)
     {
-        ResultString = $"DocumentName: {value.DocumentName}    PageCount: {value.PageData.PageCount}   PageSize: {value.PageData.PageSizes[0]}";
+
+
+        ResultString = $"Name: {value.Name}    DocumentTextCollection: {value.DocumentTextCollection[0]}";
     }
 
-
-
-
-   
-
-    
   
     
 }
