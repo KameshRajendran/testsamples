@@ -1,0 +1,91 @@
+@page "/PdfViewerHandwrittenSignatureTypeSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath"
+                   HandwrittenSignatureSettings="@handwrittenSignatureSettings">
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+    <select @onchange="stopMouseHover">
+        <option value="" selected="selected"></option>
+        <option value="displayModeDraw">Draw</option>
+        <option value="displayModeText">Text</option>
+        <option value="displayModeUpload">Upload</option>
+
+
+    </select>
+</form>
+
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    public int[]? borderValue { get; set; } = { 10, 21, 18, 34, 52 };
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "displayModeDraw":
+                displayModeDraw();
+                break;
+            case "displayModeText":
+                displayModeText();
+                break;
+            case "displayModeUpload":
+                displayModeUpload();
+                break;
+
+
+
+        }
+    }
+    public List<AllowedInteraction> allowedInteractions = new List<AllowedInteraction>
+    {
+        AllowedInteraction.Move
+    };
+    PdfViewerHandwrittenSignatureSettings handwrittenSignatureSettings = new PdfViewerHandwrittenSignatureSettings
+        {
+            Author = "Handwritten-Signature", Thickness = 2, Opacity = 0.8, IsLock = false, SkipDownload = false, SkipPrint = false, IsPrint = true, StrokeColor = "green", Height = 250, Width = 300
+        };
+    public PdfViewerSignatureDialogSettings dialogSettings = new PdfViewerSignatureDialogSettings();
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+    public void displayModeDraw()
+    {
+        dialogSettings = new PdfViewerSignatureDialogSettings { DisplayMode = DisplayMode.Draw };
+        handwrittenSignatureSettings = new PdfViewerHandwrittenSignatureSettings { SignatureDialogSettings = dialogSettings };
+        heading = "Signature Dialog Display Draw: ";
+        headingValue = handwrittenSignatureSettings.SignatureDialogSettings.DisplayMode.ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+    public void displayModeText()
+    {
+        dialogSettings = new PdfViewerSignatureDialogSettings { DisplayMode = DisplayMode.Text };
+        handwrittenSignatureSettings = new PdfViewerHandwrittenSignatureSettings { SignatureDialogSettings = dialogSettings };
+        heading = "Signature Dialog Dispaly Text: ";
+        headingValue = handwrittenSignatureSettings.SignatureDialogSettings.DisplayMode.ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+    public void displayModeUpload()
+    {
+        dialogSettings = new PdfViewerSignatureDialogSettings { DisplayMode = DisplayMode.Upload };
+        handwrittenSignatureSettings = new PdfViewerHandwrittenSignatureSettings { SignatureDialogSettings = dialogSettings };
+        heading = "Signature Dialog Dispaly Upload: ";
+        headingValue = handwrittenSignatureSettings.SignatureDialogSettings.DisplayMode.ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+
+}

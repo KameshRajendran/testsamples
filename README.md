@@ -64,5 +64,15 @@
 |58| https://localhost:7134/ImportFailureEvent | ImportFailureEvent.razor | Naveen Kumar | Yes | --- |
 |59| https://localhost:7134/ImportStartEvent | ImportStartEvent.razor | Naveen Kumar | Yes | --- |
 |60| https://localhost:7134/ImportSuccessEvent | ImportSuccessEvent.razor | Naveen Kumar | Yes | --- |
+|61| https://localhost:7134/PdfViewerCustomStampType | PdfViewerCustomStampType.razor | Abishek Roy | Yes | - |
+|62| https://localhost:7134/PdfViewerCustomStampTypeSettings | PdfViewerCustomStampTypeSettings.razor | Abishek Roy | Yes | - |
+|63| https://localhost:7134/PdfViewerDistanceTypeSettings | PdfViewerDistanceTypeSettings.razor | Abishek Roy | Yes | - |
+|64| https://localhost:7134/PdfViewerFreeTextTypeSettings | PdfViewerFreeTextTypeSettings.razor | Abishek Roy | Yes|-|
+|65| https://localhost:7134/PdfViewerEventsType | PdfViewerEventsType.razor | Abishek Roy |Yes | - |
+|66| https://localhost:7134/PdfViewerHandwrittenSignatureTypeSettings | PdfViewerHandwrittenSignatureTypeSettings.razor |Abishek Roy | Yes | - |
+|67| https://localhost:7134/PdfViewerHighlightTypeSettings | PdfViewerHighlightTypeSettings.razor | Abishek Roy |Yes | - |
+|68| https://localhost:7134/PdfViewerInkAnnotationTypeSettings | PdfViewerInkAnnotationTypeSettings.razor |Abishek Roy | Yes | - |
+|69| https://localhost:7134/PdfViewerLineTypeSettings | PdfViewerLineTypeSettings.razor |Abishek Roy | Yes | - |
+|70| https://localhost:7134/PdfViewerMeasurementTypeSettings | PdfViewerMeasurementTypeSettings.razor | Abishek Roy |No | 1) Couldn't check since the icon in not visible|
 
 

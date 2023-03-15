@@ -1,0 +1,29 @@
+@page "/PdfViewerLineTypeSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+<div >
+    <div >
+         
+        <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%" EnableShapeAnnotation=true  EnableShapeLabel=true>
+
+       <PdfViewerShapeLabelSettings FontColor="#ffffffff" FontFamily="Times New Roman" FillColor="#f44336ff" LabelContent="Syncfusion" FontSize=18  Opacity=0.9  ></PdfViewerShapeLabelSettings>
+        
+     <PdfViewerLineSettings   LineHeadEndStyle="LineHeadStyle.Closed" LineHeadStartStyle="LineHeadStyle.Square" Author="LineAnnotation" StrokeColor="#03a9f4ff"   Opacity=0.8 Thickness=3  ></PdfViewerLineSettings>
+        </SfPdfViewerServer>
+      
+        </div>
+    </div>
+
+
+@code {
+     private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+  
+
+    public SfPdfViewerServer viewer { get; set; }
+
+}

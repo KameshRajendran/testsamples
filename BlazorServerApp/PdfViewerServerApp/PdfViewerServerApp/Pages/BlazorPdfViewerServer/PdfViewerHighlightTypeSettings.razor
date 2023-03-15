@@ -1,0 +1,29 @@
+@page "/PdfViewerHighlightTypeSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath">
+    <PdfViewerHighlightSettings Author="Syncfusion" IsLock=false IsPrint=true Color="green" SkipDownload=false SkipPrint=false></PdfViewerHighlightSettings>
+</SfPdfViewerServer>
+
+
+
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    public int[]? borderValue { get; set; } = { 10, 21, 18, 34, 52 };
+   
+  
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+  
+}

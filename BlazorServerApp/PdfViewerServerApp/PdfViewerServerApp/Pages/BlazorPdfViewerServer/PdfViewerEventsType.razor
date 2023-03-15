@@ -1,0 +1,166 @@
+
+@page "/PdfViewerEventsType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+<div >
+    <div >
+         
+        <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%" >
+
+            <PdfViewerEvents  AnnotationAdded="OnAnnotationAdded" AnnotationMouseover="onMouseOver" AnnotationMoved="onAnnotationMoved" AnnotationPropertiesChanged="onAnnotationPropertiesChanged" AnnotationRemoved="onAnnotationRemoved" AnnotationResized="onAnnotationResized" AnnotationSelected="onAnnotationSelected" OnAnnotationDoubleClick="onAnnotationDoubleClick" />
+
+          <PdfViewerInkAnnotationSettings Author="InkAnnotation" StrokeColor="Green" Opacity=0.5 Thickness=4 ></PdfViewerInkAnnotationSettings>
+
+           </SfPdfViewerServer>
+        <div>
+            <form name="form1" id="form1">
+            <select @onchange="stopMouseHover">
+                <option value="" selected="selected"></option>
+                <option value="stopmouseover">Stop mouseover</option>
+                <option value="annotationCollectionCheck">annotation Collection</option>
+
+            </select>
+            </form>
+            <div>
+                @ResultString
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "stopmouseover":
+                stopMouseOver = !stopMouseOver;
+                break;
+            case "annotationCollectionCheck":
+                annotationCollection();
+                break;
+
+        }
+    }
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    private string ResultString = "";
+    bool stopMouseOver = false;
+
+    public SfPdfViewerServer? viewer { get; set; }
+
+    //viewer.FreeTextSettings.MaxHeight
+
+    public void OnAnnotationAdded(AnnotationAddEventArgs value)
+
+    {
+
+       ResultString = "";
+
+        ResultString = "EventName: " + value.Name + "  Annoatation-Type:" + value.AnnotationType + " " + "  AuthorValue: " + value.AnnotationProperties.Author + " " + "  Bordercolor:" + value.AnnotationProperties.BorderColor + "  BoderWidth:" + value.AnnotationProperties.BorderWidth + "  Textmarkup-color" + value.AnnotationProperties.Color + "   DefaultText" + value.AnnotationProperties.DefaultText + " FillColor: " + value.AnnotationProperties.FillColor + " FontColor: " + value.AnnotationProperties.FontColor + "  FontFamily: " + value.AnnotationProperties.FontFamily + " FontSize: " + value.AnnotationProperties.FontSize + "  FontStyle: " + value.AnnotationProperties.FontStyle + "  Height:" + value.AnnotationProperties.Height + "  Annotation ID:" + value.AnnotationId +
+          "   LineHeadStart: " + value.AnnotationProperties.LineHeadStart + "  LineHeadEnd: " + value.AnnotationProperties.LineHeadEnd + "  Modified-Date:" + value.AnnotationProperties.ModifiedDate + "  Opacity:" + value.AnnotationProperties.Opacity + "  Subject:" + value.AnnotationProperties.Subject + "  TextAlignment:" + value.AnnotationProperties.TextAlignment + "  Markup content: " + value.AnnotationProperties.TextMarkupContent + "   Start index: " + value.AnnotationProperties.TextMarkupStartIndex + "  End index: " + value.AnnotationProperties.TextMarkupEndIndex + "  Thickness:" + value.AnnotationProperties.Thickness + " IsLock: " + value.AnnotationProperties.IsLock + " Bound-Height: " + value.Bound.Height + " Bound-Width: " + value.Bound.Width + " Bound-Left: " + value.Bound.Left + " Bound-Top: " + value.Bound.Top + " Custom-Stamp:" + value.CustomStampName ;
+
+     
+    }
+
+
+    public void onMouseOver(AnnotationMouseoverEventArgs value)
+    {
+
+        if (!stopMouseOver)
+        {
+            ResultString = "";
+             ResultString = $"AnnotationId: {value.AnnotationId}   AnnotationType: {value.AnnotationType}   PageNumber:{value.PageNumber}  Name: {value.Name}   Bound.Height: {value.Bound.Height}   Bound.Width: {value.Bound.Width}   Bound.X: {value.Bound.X}   Bound.Y:{value.Bound.Y}  PageX: {value.PageX}  PageY:{value.PageY}   X:{value.X}   Y:{value.Y}  AnnotationProperties.Author: {value.AnnotationProperties.Author}  AnnotationProperties.BorderColor.FreeText: {value.AnnotationProperties.BorderColor}  AnnotationProperties.BorderDashArray: {value.AnnotationProperties.BorderDashArray}   AnnotationProperties.BorderWidth.FreeText: {value.AnnotationProperties.BorderWidth}   AnnotationProperties.color.textMarkup: {value.AnnotationProperties.Color}  AnnotationProperties.Data.ink/Signature: {value.AnnotationProperties.Data}  AnnotationProperties.DefaultText.FreeText: {value.AnnotationProperties.DefaultText}  AnnotationProperties.FillColor: {value.AnnotationProperties.FillColor}   AnnotationProperties.FontColor.Shape/Measure: {value.AnnotationProperties.FontColor}   AnnotationProperties.FontFamily.Shape/Measure: {value.AnnotationProperties.FontFamily}   AnnotationProperties.FontSize.Shape/Measure: {value.AnnotationProperties.FontSize}   AnnotationProperties.FontStyle.FreeText: {value.AnnotationProperties.FontStyle}   AnnotationProperties.Height: {value.AnnotationProperties.Height}   AnnotationProprties.IsLock: {value.AnnotationProperties.IsLock}   AnnotationProperties.LabelSetting.Shape/Measure: {value.AnnotationProperties.LabelSettings}    AnnotationProperties.LineHeadEnd.Line/Arrow/Perimeter/distance: {value.AnnotationProperties.LineHeadEnd}   AnnotationProperties.LineHeadStart.Line/Arrow/Perimeter/distance: {value.AnnotationProperties.LineHeadStart}    AnnotationProprties.MaxHeight: {value.AnnotationProperties.MaxHeight}   AnnotationProperties.MaxWidth: {value.AnnotationProperties.MaxWidth}    AnnotationProperties.MinHeight: {value.AnnotationProperties.MinHeight}    AnnotationProperties.MinWidth: {value.AnnotationProperties.MinWidth}    AnnotationProperties.ModifiedDate: {value.AnnotationProperties.ModifiedDate}    AnnotationProperties.Opacity: {value.AnnotationProperties.Opacity}    AnnotationProperties.StrokeColor: {value.AnnotationProperties.StrokeColor}    AnnotationProperties.Subject: {value.AnnotationProperties.Subject}    AnnotationProperties.TextAlignment.FreeText: {value.AnnotationProperties.TextAlignment}    AnnotationProperties.TextMarkupContent.textMarkup: {value.AnnotationProperties.TextMarkupContent}     AnnotationProperties.TextMarkupEndIndex.textMarkup: {value.AnnotationProperties.TextMarkupEndIndex}    AnnotationProperties.TextMarkupStartIndex.textMarkup: {value.AnnotationProperties.TextMarkupStartIndex}    AnnotationProperties.Thickness: {value.AnnotationProperties.Thickness}   AnnotationProperties.Width: {value.AnnotationProperties.Width}    AnnotationProperties.Type: {value.AnnotationProperties.Type}";
+
+        }
+
+
+    }
+
+    public async void annotationCollection()
+    {
+        ResultString = "";
+        var annotationCollection = await viewer!.GetAnnotationsAsync();
+
+        
+            ResultString = "AnnotationCollection: " + annotationCollection.Count;
+        
+
+        StateHasChanged();
+
+    }
+
+    public void onAnnotationMoved(AnnotationMoveEventArgs value)
+    {
+        ResultString = "";
+
+        
+            ResultString = $"AnnotationId: {value.AnnotationId}   AnnotationType: {value.AnnotationType}  PageNumber: {value.PageNumber}  Name: {value.Name}  CurrentPosition: {value.CurrentPosition }    PreviousPosition: {value.PreviousPosition}  AnnotationProperties.Author: {value.AnnotationProperties.Author}  AnnotationProperties.BorderColor.FreeText: {value.AnnotationProperties.BorderColor}  AnnotationProperties.BorderDashArray: {value.AnnotationProperties.BorderDashArray}   AnnotationProperties.BorderWidth.FreeText: {value.AnnotationProperties.BorderWidth}   AnnotationProperties.color.textMarkup: {value.AnnotationProperties.Color}  AnnotationProperties.Data.ink/Signature: {value.AnnotationProperties.Data}  AnnotationProperties.DefaultText.FreeText: {value.AnnotationProperties.DefaultText}  AnnotationProperties.FillColor: {value.AnnotationProperties.FillColor}   AnnotationProperties.FontColor.Shape/Measure: {value.AnnotationProperties.FontColor}   AnnotationProperties.FontFamily.Shape/Measure: {value.AnnotationProperties.FontFamily}   AnnotationProperties.FontSize.Shape/Measure: {value.AnnotationProperties.FontSize}   AnnotationProperties.FontStyle.FreeText: {value.AnnotationProperties.FontStyle}   AnnotationProperties.Height: {value.AnnotationProperties.Height}   AnnotationProprties.IsLock: {value.AnnotationProperties.IsLock}   AnnotationProperties.LabelSetting.Shape/Measure: {value.AnnotationProperties.LabelSettings}    AnnotationProperties.LineHeadEnd.Line/Arrow/Perimeter/distance: {value.AnnotationProperties.LineHeadEnd}   AnnotationProperties.LineHeadStart.Line/Arrow/Perimeter/distance: {value.AnnotationProperties.LineHeadStart}    AnnotationProprties.MaxHeight: {value.AnnotationProperties.MaxHeight}   AnnotationProperties.MaxWidth: {value.AnnotationProperties.MaxWidth}    AnnotationProperties.MinHeight: {value.AnnotationProperties.MinHeight}    AnnotationProperties.MinWidth: {value.AnnotationProperties.MinWidth}    AnnotationProperties.ModifiedDate: {value.AnnotationProperties.ModifiedDate}    AnnotationProperties.Opacity: {value.AnnotationProperties.Opacity}    AnnotationProperties.StrokeColor: {value.AnnotationProperties.StrokeColor}    AnnotationProperties.Subject: {value.AnnotationProperties.Subject}    AnnotationProperties.TextAlignment.FreeText: {value.AnnotationProperties.TextAlignment}    AnnotationProperties.TextMarkupContent.textMarkup: {value.AnnotationProperties.TextMarkupContent}     AnnotationProperties.TextMarkupEndIndex.textMarkup: {value.AnnotationProperties.TextMarkupEndIndex}    AnnotationProperties.TextMarkupStartIndex.textMarkup: {value.AnnotationProperties.TextMarkupStartIndex}    AnnotationProperties.Thickness: {value.AnnotationProperties.Thickness}   AnnotationProperties.Width: {value.AnnotationProperties.Width}    AnnotationProperties.Type: {value.AnnotationProperties.Type}";
+
+        
+
+    }
+
+    public void onAnnotationPropertiesChanged(AnnotationPropertiesChangeEventArgs value)
+    {
+        ResultString = "";
+
+        
+            ResultString = $"AnnotationId: {value.AnnotationId}   AnnotationType: {value.AnnotationType}   PageNumber: {value.PageNumber}   Name: {value.Name}   IsBorderDashArrayChanged: {value.IsBorderDashArrayChanged}    IsColorChanged: {value.IsColorChanged}    IsCommentsChanged: {value.IsColorChanged}   IsCommentsChanged: {value.IsCommentsChanged}   IsLineHeadEndStyleChanged: {value.IsLineHeadEndStyleChanged}   IsLineHeadStartStyleChanged: {value.IsLineHeadStartStyleChanged}    IsOpacityChanged: {value.IsOpacityChanged}    IsStrokeColorChanged: {value.IsStrokeColorChanged}     IsTextChanged: {value.IsTextChanged}     IsThicknessChanged: {value.IsThicknessChanged}    TextMarkupContent: {value.TextMarkupContent}   TextMarkUpEndIndex: {value.TextMarkupEndIndex}    TextMarkUpStartIndex: {value.TextMarkupStartIndex}  ";
+            
+        
+    }
+
+
+
+    public void onAnnotationRemoved(AnnotationRemoveEventArgs value)
+    {
+        ResultString = "";
+
+       
+            ResultString = $"AnnotationId: {value.AnnotationId}   AnnotationType: {value.AnnotationType}   PageNumber: {value.PageNumber}    Name:  {value.Name}    Bound: {value.Bound}    TextMarkupContent: {value.TextMarkupContent}    TextMarkupEndIndex: {value.TextMarkupEndIndex}    TextMarkupStartIndex: {value.TextMarkupStartIndex} ";
+
+        
+            
+    }
+
+    public void onAnnotationResized(AnnotationResizeEventArgs value)
+    {
+
+        ResultString = "";
+        //ResultString = JsonConvert.SerializeObject(resize);
+       
+             ResultString = $"AnnotationId: {value.AnnotationId}   AnnotationType: {value.AnnotationType}   PageNumber: {value.PageNumber}    Name:  {value.Name}    Bound: {value.Bound}    TextMarkupContent: {value.TextMarkupContent}    TextMarkupEndIndex: {value.TextMarkupEndIndex}    TextMarkupStartIndex: {value.TextMarkupStartIndex}    AnnotationProperties: {value.AnnotationProperties}    LabelSettings:{value.LabelSettings}   CustomStampName: {value.CustomStampName}";
+
+       
+    }
+
+    public void onAnnotationSelected(AnnotationSelectEventArgs value)
+    {
+
+        ResultString = "";
+       
+            ResultString = $"AnnotationCollection: {value.AnnotationCollection[0]}   AnnotationId: {value.AnnotationId}    IsProgrammaticSelection: {value.IsProgrammaticSelection}    PageNumber:{value.PageNumber}AnnotationProperties.Author: {value.AnnotationProperties.Author}  AnnotationProperties.BorderColor.FreeText: {value.AnnotationProperties.BorderColor}  AnnotationProperties.BorderDashArray: {value.AnnotationProperties.BorderDashArray}   AnnotationProperties.BorderWidth.FreeText: {value.AnnotationProperties.BorderWidth}   AnnotationProperties.color.textMarkup: {value.AnnotationProperties.Color}  AnnotationProperties.Data.ink/Signature: {value.AnnotationProperties.Data}  AnnotationProperties.DefaultText.FreeText: {value.AnnotationProperties.DefaultText}  AnnotationProperties.FillColor: {value.AnnotationProperties.FillColor}   AnnotationProperties.FontColor.Shape/Measure: {value.AnnotationProperties.FontColor}   AnnotationProperties.FontFamily.Shape/Measure: {value.AnnotationProperties.FontFamily}   AnnotationProperties.FontSize.Shape/Measure: {value.AnnotationProperties.FontSize}   AnnotationProperties.FontStyle.FreeText: {value.AnnotationProperties.FontStyle}   AnnotationProperties.Height: {value.AnnotationProperties.Height}   AnnotationProprties.IsLock: {value.AnnotationProperties.IsLock}   AnnotationProperties.LabelSetting.Shape/Measure: {value.AnnotationProperties.LabelSettings}    AnnotationProperties.LineHeadEnd.Line/Arrow/Perimeter/distance: {value.AnnotationProperties.LineHeadEnd}   AnnotationProperties.LineHeadStart.Line/Arrow/Perimeter/distance: {value.AnnotationProperties.LineHeadStart}    AnnotationProprties.MaxHeight: {value.AnnotationProperties.MaxHeight}   AnnotationProperties.MaxWidth: {value.AnnotationProperties.MaxWidth}    AnnotationProperties.MinHeight: {value.AnnotationProperties.MinHeight}    AnnotationProperties.MinWidth: {value.AnnotationProperties.MinWidth}    AnnotationProperties.ModifiedDate: {value.AnnotationProperties.ModifiedDate}    AnnotationProperties.Opacity: {value.AnnotationProperties.Opacity}    AnnotationProperties.StrokeColor: {value.AnnotationProperties.StrokeColor}    AnnotationProperties.Subject: {value.AnnotationProperties.Subject}    AnnotationProperties.TextAlignment.FreeText: {value.AnnotationProperties.TextAlignment}    AnnotationProperties.TextMarkupContent.textMarkup: {value.AnnotationProperties.TextMarkupContent}     AnnotationProperties.TextMarkupEndIndex.textMarkup: {value.AnnotationProperties.TextMarkupEndIndex}    AnnotationProperties.TextMarkupStartIndex.textMarkup: {value.AnnotationProperties.TextMarkupStartIndex}    AnnotationProperties.Thickness: {value.AnnotationProperties.Thickness}   AnnotationProperties.Width: {value.AnnotationProperties.Width}    AnnotationProperties.Type: {value.AnnotationProperties.Type}";
+
+        
+    }
+
+    public void onAnnotationDoubleClick(AnnotationDoubleClickEventArgs value)
+    {
+       ResultString = "";
+
+        ResultString = "EventName: " + value.Name + "  Annoatation-ID:" + value.AnnotationId + "  PageNumber: "+value.PageNumber + "  AuthorValue: " + value.AnnotationProperties.Author + " " + "  Bordercolor:" + value.AnnotationProperties.BorderColor + "  BoderWidth:" + value.AnnotationProperties.BorderWidth + "  Textmarkup-color" + value.AnnotationProperties.Color + "   DefaultText" + value.AnnotationProperties.DefaultText + " FillColor: " + value.AnnotationProperties.FillColor + " FontColor: " + value.AnnotationProperties.FontColor + "  FontFamily: " + value.AnnotationProperties.FontFamily + " FontSize: " + value.AnnotationProperties.FontSize + "  FontStyle: " + value.AnnotationProperties.FontStyle + "  Height:" + value.AnnotationProperties.Height +
+          "   LineHeadStart: " + value.AnnotationProperties.LineHeadStart + "  LineHeadEnd: " + value.AnnotationProperties.LineHeadEnd + "  Modified-Date:" + value.AnnotationProperties.ModifiedDate + "  Opacity:" + value.AnnotationProperties.Opacity + "  Subject:" + value.AnnotationProperties.Subject + "  TextAlignment:" + value.AnnotationProperties.TextAlignment + "  Markup content: " + value.AnnotationProperties.TextMarkupContent + "   Start index: " + value.AnnotationProperties.TextMarkupStartIndex + "  End index: " + value.AnnotationProperties.TextMarkupEndIndex + "  Thickness:" + value.AnnotationProperties.Thickness + " IsLock: " + value.AnnotationProperties.IsLock;
+
+    }
+
+}
