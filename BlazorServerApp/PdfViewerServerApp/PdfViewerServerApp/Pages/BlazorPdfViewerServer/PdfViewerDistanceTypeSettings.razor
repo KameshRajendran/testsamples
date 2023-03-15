@@ -1,0 +1,67 @@
+@page "/PdfViewerDistanceTypeSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath" >
+    
+   
+    <PdfViewerDistanceSettings LineHeadEndStyle="@lineHead" LineHeadStartStyle="@lineHead" Author="Distance" SkipDownload=false SkipPrint=false LeaderLength="70"> </PdfViewerDistanceSettings>
+
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+    <select @onchange="stopMouseHover">
+        <option value="" selected="selected"></option>
+        <option value="lineHeadStyleChange">Calibrate Distance Change</option>
+        
+        
+
+
+    </select>
+</form>
+
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    public InteractionMode val = InteractionMode.TextSelection;
+    public int[]? borderValue { get; set; } = { 10, 21, 18, 34, 52 };
+    public LineHeadStyle lineHead = LineHeadStyle.Arrow;
+
+    public List<PdfViewerCustomStamp> pdfViewerCustomStamps { get; set; }
+
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "lineHeadStyleChange":
+                lineHeadStyleChange();
+                break;
+
+
+
+        }
+    }
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+
+
+
+
+
+    public void lineHeadStyleChange()
+    {
+        lineHead = LineHeadStyle.Diamond;
+    }
+
+}

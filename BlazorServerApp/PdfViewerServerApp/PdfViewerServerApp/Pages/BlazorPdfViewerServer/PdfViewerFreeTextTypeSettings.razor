@@ -1,0 +1,26 @@
+@page "/PdfViewerFreeTextTypeSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+<div >
+    <div  >
+ 
+        <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%"  >
+
+           
+            <PdfViewerFreeTextSettings  MaxHeight="100" MaxWidth="150" MinHeight="50" MinWidth="50" BorderColor="#00796bff" Opacity="1.0" BorderStyle="Thick" BorderThickness="5"  Author="FreetextAnnotation" Width="150" Height="70" FillColor="#fff176ff"  TextAlignment="TextAlignment.Center" FontFamily="Times New Roman"  FontStyle="FontStyle.Italic"  FontSize="20"  FontColor="#00796bff"  DefaultText="Syncfusion" ></PdfViewerFreeTextSettings>
+
+        </SfPdfViewerServer>
+           </div>
+    </div>
+@code {
+ 
+ private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+ public SfPdfViewerServer viewer { get; set; }
+ 
+}

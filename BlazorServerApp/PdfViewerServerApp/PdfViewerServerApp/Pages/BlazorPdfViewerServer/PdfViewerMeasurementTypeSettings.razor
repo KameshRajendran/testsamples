@@ -1,0 +1,187 @@
+@page "/PdfViewerMeasurementTypeSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath">
+    <PdfViewerMeasurementSettings Depth=70 ScaleRatio=0.7 DisplayUnit=@displayUnit ConversionUnit=@conversionUnit></PdfViewerMeasurementSettings>
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+    <select @onchange="ConversionUnit">
+        <option value="" selected="selected"></option>
+        <option value="cm">cm</option>
+        <option value="ft">ft</option>
+        <option value="In">In</option>
+        <option value="Mm">Mm</option>
+        <option value="P">P</option>
+             <option value="Pt">Pt</option>
+        
+
+
+
+    </select>
+</form>
+
+<form name="form2" id="form2">
+    <select @onchange="DisplayUnit">
+        <option value="" selected="selected"></option>
+        <option value="cm">cm</option>
+        <option value="ft">ft</option>
+        <option value="In">In</option>
+        <option value="Mm">Mm</option>
+        <option value="P">P</option>
+             <option value="Pt">Pt</option>
+
+
+
+
+    </select>
+</form>
+
+
+
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    public int[]? borderValue { get; set; } = { 10, 21, 18, 34, 52 };
+    public CalibrationUnit conversionUnit = CalibrationUnit.Cm;
+    public CalibrationUnit displayUnit = CalibrationUnit.Cm;
+
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    void ConversionUnit(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "cm":
+                Cm();
+                break;
+            case "ft":
+                Ft();
+                break;
+
+            case "In":
+                In();
+                break;
+            case "Mm":
+                Mm();
+                break;
+            case "P":
+                P();
+                break;
+
+            case "Pt":
+                Pt();
+                break;
+
+
+
+        }
+    }
+
+    void DisplayUnit(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "cmD":
+                Cm();
+                break;
+            case "ftD":
+                Ft();
+                break;
+
+            case "InD":
+                In();
+                break;
+            case "MmD":
+                Mm();
+                break;
+            case "PD":
+                P();
+                break;
+
+            case "PtD":
+                Pt();
+                break;
+
+
+
+        }
+    }
+
+    public void Cm()
+    {
+        conversionUnit= CalibrationUnit.Cm;
+    }
+
+    public void Ft()
+    {
+        conversionUnit = CalibrationUnit.Ft;
+    }
+
+    public void In()
+    {
+        conversionUnit = CalibrationUnit.In;
+    }
+
+    public void Mm()
+    {
+        conversionUnit = CalibrationUnit.Mm;
+    }
+
+    public void P()
+    {
+        conversionUnit = CalibrationUnit.P;
+    }
+
+    public void Pt()
+    {
+        conversionUnit = CalibrationUnit.Pt;
+    }
+
+    public void CmD()
+    {
+        displayUnit = CalibrationUnit.Cm;
+    }
+    
+    public void FtD()
+    {
+            displayUnit = CalibrationUnit.Ft;
+    }
+
+    public void InD()
+    {
+            displayUnit = CalibrationUnit.In;
+    }
+
+    public void MmD()
+    {
+            displayUnit = CalibrationUnit.Mm;
+    }
+    
+    public void PD()
+    {
+            displayUnit = CalibrationUnit.P;
+    }
+
+    public void PtD()
+    {
+            displayUnit = CalibrationUnit.Pt;
+    }
+
+    
+
+  
+}

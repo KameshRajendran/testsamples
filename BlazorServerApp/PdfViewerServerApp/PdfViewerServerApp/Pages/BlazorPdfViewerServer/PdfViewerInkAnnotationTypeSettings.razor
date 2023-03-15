@@ -1,0 +1,34 @@
+@page "/PdfViewerInkAnnotationTypeSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.PdfViewer
+@using Newtonsoft.Json.Linq
+@using Newtonsoft.Json
+@using Syncfusion.Blazor
+
+<div >
+    <div >
+      
+         <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%" >
+
+            <PdfViewerInkAnnotationSettings Author="InkAnnotation" StrokeColor="Green" Opacity=0.5 Thickness=4 IsLock=false SkipDownload=false SkipPrint=false ></PdfViewerInkAnnotationSettings>
+
+            
+
+    </SfPdfViewerServer>
+
+    </div>
+    </div>
+
+
+@code {
+
+
+    
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+  
+
+    public SfPdfViewerServer ?  viewer { get; set; }
+
+}
