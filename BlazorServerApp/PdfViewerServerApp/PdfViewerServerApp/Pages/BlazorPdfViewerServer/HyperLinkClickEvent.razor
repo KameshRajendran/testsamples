@@ -1,0 +1,33 @@
+﻿@page "/HyperlinkClick"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerEvents OnHyperlinkClick="OnHyperlink" />
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void OnHyperlink(HyperlinkClickEventArgs value)
+
+    {
+
+        ResultString = "";
+
+        ResultString = " Cancel: " + value.Cancel + " " + " Hyperlink: " + value.Hyperlink + "HyperlinkElement: " + value.HyperlinkElement;
+    }
+}

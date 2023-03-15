@@ -1,1 +1,33 @@
 ﻿
+@page "/AnnotationBaseEvent"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%" EnableTextMarkupAnnotation=true>
+    <PdfViewerEvents AnnotationAdded="OnAnnotationAdded"></PdfViewerEvents>
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+@code {
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+
+    public void OnAnnotationAdded(AnnotationBaseEventArgs<AnnotationAddEventArgs> e)
+    {
+        ResultString = "";
+        ResultString = "Name of The Event:" + e.Name + " Annotation-ID:" + e.AnnotationId + "  PageNumber:" + e.PageNumber + " Annotation-Type:" + e.AnnotationType;
+
+
+    }
+
+}
