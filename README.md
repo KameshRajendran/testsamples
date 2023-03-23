@@ -74,5 +74,13 @@
 |68| https://localhost:7134/PdfViewerInkAnnotationTypeSettings | PdfViewerInkAnnotationTypeSettings.razor |Abishek Roy | Yes | - |
 |69| https://localhost:7134/PdfViewerLineTypeSettings | PdfViewerLineTypeSettings.razor |Abishek Roy | Yes | - |
 |70| https://localhost:7134/PdfViewerMeasurementTypeSettings | PdfViewerMeasurementTypeSettings.razor | Abishek Roy |No | 1) Couldn't check since the icon in not visible|
-
+|71| https://localhost:7134/PdfAnnotation | PdfAnnotation.razor | Naveen Kumar | Yes | --- |
+|72| https://localhost:7134/AnnotationProperties | AnnotationProperties.razor | Naveen Kumar | Yes | --- |
+|73| https://localhost:7134/AjaxRequestSetting | AjaxRequestSetting.razor | Naveen Kumar | Yes | Dont know the function of ajax |
+|74| https://localhost:7134/AnnotationSelectorSetting | AnnotationSelectorSetting.razor | Naveen Kumar | Yes | unable to test ResizerLocation and cusor Type while using resizerlocation as corner or edge selector are missing|
+|75| https://localhost:7134/AnnotationSettings | AnnotationSettings.razor | Naveen Kumar | Yes | --- |
+|76| https://localhost:7134/AreaSettings | AreaSettings.razor | Naveen Kumar | Yes | --- |
+|77| https://localhost:7134/ArrowSettings | ArrowSettings.razor | Naveen Kumar | Yes | --- |
+|78| https://localhost:7134/CircleSettings | CircleSettings.razor | Naveen Kumar | Yes | --- |
+|79| https://localhost:7134/ContextMenuSetting | ContextMenuSetting.razor | Naveen Kumar | Yes | --- |Naveen Kumar | Yes | --- |
 

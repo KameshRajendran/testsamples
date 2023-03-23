@@ -1,0 +1,47 @@
+﻿@page "/AjaxRequestSetting"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+<h4>@heading @headingValue</h4>
+<h4>@ValueHeading @ValueHeadings</h4>
+<SfButton @onclick="AjaxHeader">Ajax Value Header</SfButton>
+<SfButton @onclick="WithCredential">Credentials</SfButton>
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath"
+                   AjaxRequestSettings="@ajaxRequestSettings">
+</SfPdfViewerServer>
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+    public AjaxHeader ajaxHeader = new AjaxHeader();
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    public List<AjaxHeader> ajaxHeaders = new List<AjaxHeader>();
+    public Bound bound = new Bound();
+    PdfViewerAjaxRequestSettings ajaxRequestSettings = new PdfViewerAjaxRequestSettings
+        {
+            WithCredentials = false
+        };
+    public void AjaxHeader(MouseEventArgs args)
+    {
+        ajaxHeader.HeaderName = "Ajax Header";
+        ajaxHeader.HeaderValue = "Ajax value for the PDF viewer";
+        ajaxHeaders.Add(ajaxHeader);
+        ajaxRequestSettings = new PdfViewerAjaxRequestSettings { AjaxHeaders = ajaxHeaders };
+        heading = "Ajax Header: ";
+        headingValue = ajaxRequestSettings.AjaxHeaders[0].HeaderName.ToString();
+        ValueHeading = "Ajax Header Value: ";
+        ValueHeadings = ajaxRequestSettings.AjaxHeaders[0].HeaderValue.ToString();
+    }
+    public void WithCredential(MouseEventArgs args)
+    {
+        ajaxRequestSettings = new PdfViewerAjaxRequestSettings { WithCredentials = true };
+        heading = "With Credential: ";
+        headingValue = Viewer!.AjaxRequestSettings.WithCredentials.ToString();
+    }
+}

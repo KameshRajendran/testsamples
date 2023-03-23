@@ -1,0 +1,36 @@
+﻿@page "/PdfAnnotation"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%" EnableShapeLabel=true EnableTextMarkupAnnotation=true >
+    <PdfViewerEvents AnnotationUnselected="PdfAnnotations" />
+    <PdfViewerHighlightSettings EnableMultiPageAnnotation=true ></PdfViewerHighlightSettings>
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+
+@code {
+    
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void PdfAnnotations(AnnotationUnselectEventArgs value)
+
+    {
+
+        ResultString = "";
+
+        ResultString = " AllowedInteractions: " + value.Annotation.AllowedInteractions + " " + " ,AnnotationMode: " + value.Annotation.AnnotationMode + " ,AnnotationSettings: " + value.Annotation.AnnotationSettings + " ,Author: " + value.Annotation.Author + " ,Bound: " + value.Annotation.Bound + " ,Bounds: " + value.Annotation.Bounds + " ,Comments: " + value.Annotation.Comments + " ,DynamicText: " + value.Annotation.DynamicText + " ,EnableShapeLabel: " + value.Annotation.EnableShapeLabel + " ,Annotation-Id: " + value.Annotation.Id + " ,IdCollection: " + value.Annotation.IdCollection + " ,Indent: " + value.Annotation.Indent + " ,IsMultiSelect: " + value.Annotation.IsMultiSelect + " ,IsLock: " + value.Annotation.IsLock + " ,IsPrint: " + value.Annotation.IsPrint + " ,LabelBorderColor: " + value.Annotation.LabelBorderColor + " ,LabelBound: " + value.Annotation.LabelBound + " ,LabelContent: " + value.Annotation.LabelContent + " ,LabelFillColor: " + value.Annotation.LabelFillColor + " ,LabelSettings: " + value.Annotation.LabelSettings + " ,LeaderLength: " + value.Annotation.LeaderLength + " ,LeaderLineExtension: " + value.Annotation.LeaderLineExtension + " ,LeaderLineOffset: " + value.Annotation.LeaderLineOffset + " ,Note: " + value.Annotation.Note + " ,PageNumber: " + value.Annotation.PageNumber + " ,PageNumbers: " + value.Annotation.PageNumbers + " ,Rect: " + value.Annotation.Rect + " ,Review: " + value.Annotation.Review + " ,UniqueKey: " + value.Annotation.UniqueKey;
+        
+    }
+}
