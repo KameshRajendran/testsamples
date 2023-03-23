@@ -78,7 +78,7 @@
 |72| https://localhost:7134/AnnotationProperties | AnnotationProperties.razor | Naveen Kumar | Yes | --- |
 |73| https://localhost:7134/AjaxRequestSetting | AjaxRequestSetting.razor | Naveen Kumar | Yes | Dont know the function of ajax |
 |74| https://localhost:7134/AnnotationSelectorSetting | AnnotationSelectorSetting.razor | Naveen Kumar | Yes | unable to test ResizerLocation and cusor Type while using resizerlocation as corner or edge selector are missing|
-|75| https://localhost:7134/AnnotationSettings | AnnotationSettings.razor | Naveen Kumar | Yes | --- |
+|75| https://localhost:7134/AnnotationSettings | AnnotationSettings.razor | Naveen Kumar | Yes | MaxHeight-MiniHeight MaxWidth-MiniWidth is not working properly |
 |76| https://localhost:7134/AreaSettings | AreaSettings.razor | Naveen Kumar | Yes | --- |
 |77| https://localhost:7134/ArrowSettings | ArrowSettings.razor | Naveen Kumar | Yes | --- |
 |78| https://localhost:7134/CircleSettings | CircleSettings.razor | Naveen Kumar | Yes | --- |
