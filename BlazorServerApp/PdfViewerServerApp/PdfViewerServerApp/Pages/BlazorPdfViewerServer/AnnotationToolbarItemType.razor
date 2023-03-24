@@ -1,0 +1,129 @@
+@page "/AnnotationToolbarItemType"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using static Syncfusion.Blazor.PdfViewer.AnnotationToolbarItem
+@using static Syncfusion.Blazor.PdfViewer.ToolbarItem
+
+
+
+<SfPdfViewerServer @ref="Viewer" Height="500px" Width="1060px" DocumentPath="@DocumentPath">
+                   <PdfViewerToolbarSettings ToolbarItems=@ToolbarItemsList ShowTooltip=false AnnotationToolbarItems=@AnnotationToolbarItemsList></PdfViewerToolbarSettings>
+</SfPdfViewerServer>
+
+<form name="form1" id="form1">
+    <select @onchange="stopMouseHover">
+        <option value="" selected="selected"></option>
+        <option value="annotationToolbarItemCollection">AnnotationToolbarItem Collection</option>
+        <option value="toolbarItems">ToolbarItems</option>
+        
+    </select>
+</form>
+
+@code {
+    public string? ValueHeading { get; set; }
+    public string? ValueHeadings { get; set; }
+    public string? heading { get; set; }
+    public string? headingValue { get; set; }
+    public SfPdfViewerServer? Viewer { get; set; }
+
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "annotationToolbarItemCollection":
+                annotationToolbarItemCollection();
+                break;
+            case "toolbarItems":
+                toolbarItems();
+                break;
+            
+
+        }
+    }
+
+    public static List<Syncfusion.Blazor.PdfViewer.AnnotationToolbarItem> AnnotationToolbarItemsList = new List<Syncfusion.Blazor.PdfViewer.AnnotationToolbarItem>
+    {
+        AnnotationToolbarItem.CalibrateTool,
+        AnnotationToolbarItem.HighlightTool,
+        AnnotationToolbarItem.ColorEditTool,
+        AnnotationToolbarItem.FontSizeAnnotationTool,
+        AnnotationToolbarItem.FreeTextAnnotationTool,
+        
+    };
+    public static List<Syncfusion.Blazor.PdfViewer.ToolbarItem> ToolbarItemsList = new List<Syncfusion.Blazor.PdfViewer.ToolbarItem>
+    {
+        ToolbarItem.CommentTool,
+        ToolbarItem.DownloadOption,
+        ToolbarItem.MagnificationTool,
+        ToolbarItem.PrintOption,
+        ToolbarItem.AnnotationEditTool,
+        ToolbarItem.OpenOption,
+        ToolbarItem.PageNavigationTool
+    };
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    PdfViewerToolbarSettings toolbarSettings = new PdfViewerToolbarSettings
+        {
+            ShowTooltip = false,
+            AnnotationToolbarItems = AnnotationToolbarItemsList,
+            ToolbarItems = ToolbarItemsList
+        };
+   
+    public void annotationToolbarItemCollection()
+    {
+        AnnotationToolbarItemsList = new List<Syncfusion.Blazor.PdfViewer.AnnotationToolbarItem>
+        {
+             AnnotationToolbarItem.CalibrateTool,
+        AnnotationToolbarItem.HighlightTool,
+        AnnotationToolbarItem.ColorEditTool,
+        AnnotationToolbarItem.FontSizeAnnotationTool,
+            AnnotationToolbarItem.FontSizeAnnotationTool,
+            AnnotationToolbarItem.FontAlignAnnotationTool,
+            AnnotationToolbarItem.FontColorAnnotationTool,
+            AnnotationToolbarItem.FreeTextAnnotationTool,
+            AnnotationToolbarItem.AnnotationDeleteTool,
+            AnnotationToolbarItem.CloseTool,
+            AnnotationToolbarItem.CommentPanelTool,
+            AnnotationToolbarItem.FontFamilyAnnotationTool,
+            AnnotationToolbarItem.FontStylesAnnotationTool,
+            AnnotationToolbarItem.HandWrittenSignatureTool,
+            AnnotationToolbarItem.HighlightTool,
+            AnnotationToolbarItem.InkAnnotationTool,
+            AnnotationToolbarItem.OpacityEditTool,
+            AnnotationToolbarItem.ShapeTool,
+            AnnotationToolbarItem.StampAnnotationTool,
+            AnnotationToolbarItem.StrikethroughTool,
+            AnnotationToolbarItem.StrokeColorEditTool,
+            AnnotationToolbarItem.ThicknessEditTool,
+            AnnotationToolbarItem.UnderlineTool
+        };
+        toolbarSettings = new PdfViewerToolbarSettings { AnnotationToolbarItems = AnnotationToolbarItemsList };
+        heading = "Annotation Toolbar Iteams: ";
+        headingValue = Viewer!.ToolbarSettings.AnnotationToolbarItems[0].ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+    public void toolbarItems()
+    {
+        ToolbarItemsList = new List<Syncfusion.Blazor.PdfViewer.ToolbarItem>
+        {
+            ToolbarItem.OpenOption,
+            ToolbarItem.PageNavigationTool,
+            ToolbarItem.SubmitForm,
+            ToolbarItem.UndoRedoTool,
+            ToolbarItem.AnnotationEditTool,
+             ToolbarItem.CommentTool,
+        ToolbarItem.DownloadOption,
+        ToolbarItem.MagnificationTool,
+        ToolbarItem.PrintOption,
+        
+       
+        ToolbarItem.PageNavigationTool
+        };
+        //toolbarSettings = new PdfViewerToolbarSettings { ToolbarItems = ToolbarItemsList};
+        heading = "ToolbarIteams: ";
+        headingValue = Viewer!.ToolbarSettings.ToolbarItems[0].ToString();
+        ValueHeading = "";
+        ValueHeadings = "";
+    }
+}
