@@ -23,7 +23,7 @@
 |17| https://localhost:7134/AnnotationSelectEventType | AnnotationSelectEventType.razor | Abishek | Yes | 1) MultiplePageCollection property throws null exception |
 |18| https://localhost:7134/AnnotationTypeMode | AnnotationTypeMode.razor | Abishek | Yes | 1) Don't know the functionality of image 2) Line type mode is not working 3) Don't know the functionality of stamp | 
 |19| https://localhost:7134/AnnotationRemoveEventType | AnnotationRemoveEventType.razor | Abishek | Yes | 1) Bounds throw null reference 2) MultiplePageCollection throws null reference |
-|20| https://localhost:7134/AnnotationToolbarItem | AnnotationToolbarItem.razor | Abishek | No | Don't know how to create sample |
+|20| https://localhost:7134/AnnotationToolbarItemType | AnnotationToolbarItemType.razor | Abishek | Yes | - |
 |21| https://localhost:7134/AnnotationUnselect-event | AnnotationUnselectEvent.razor | Naveen Kumar | Yes | --- |
 |22| https://localhost:7134/BaseEventArgs | BaseEventArgs.razor | Naveen Kumar | Yes | ---|
 |23| https://localhost:7134/Bookmark | Bookmark.razor | Naveen Kumar | No | Don't Know how to create a sample |
@@ -82,5 +82,15 @@
 |76| https://localhost:7134/AreaSettings | AreaSettings.razor | Naveen Kumar | Yes | --- |
 |77| https://localhost:7134/ArrowSettings | ArrowSettings.razor | Naveen Kumar | Yes | --- |
 |78| https://localhost:7134/CircleSettings | CircleSettings.razor | Naveen Kumar | Yes | --- |
-|79| https://localhost:7134/ContextMenuSetting | ContextMenuSetting.razor | Naveen Kumar | Yes | --- |Naveen Kumar | Yes | --- |
+|79| https://localhost:7134/ContextMenuSetting | ContextMenuSetting.razor | Naveen Kumar | Yes | --- |
+|80| https://localhost:7134/PdfViewerStrikethroughTypeSettings | PdfViewerStrikethroughTypeSettings.razor | Abishek Roy | Yes | - |
+|81| https://localhost:7134/PdfViewerTextSearchColorTypeSettings | PdfViewerTextSearchColorTypeSettings.razor | Abishek Roy | Yes | - |
+|82| https://localhost:7134/PdfViewerTileRenderingTypeSettings | PdfViewerTileRenderingTypeSettings.razor | Abishek Roy | No | Don't know how to create sample|
+|83| https://localhost:7134/PdfViewerToolbarTypeSettings | PdfViewerToolbarTypeSettings.razor | Abishek Roy | Yes | - |
+|84| https://localhost:7134/PdfViewerUnderlineTypeSettings | PdfViewerUnderlineTypeSettings.razor | Abishek Roy | Yes | - |
+|85| https://localhost:7134/PdfViewerVolumeTypeSettings | PdfViewerVolumeTypeSettings.razor | Abishek Roy | Yes | - |
+|86| https://localhost:7134/PrintEndEventType | PrintEndEventType.razor | Abishek Roy | Yes | 1) fileName and name value is not displayed|
+|87| https://localhost:7134/PrintModeType | PrintModeType.razor | Abishek Roy | Yes | - |
+|88| https://localhost:7134/PrintStartEventType | PrintStartEventType.razor | Abishek Roy | Yes |1) fileName and name value is not displayed |
+|89| https://localhost:7134/RectType | RectType.razor | Abishek Roy |Yes| 1) Rect type throws null reference exception |
 
