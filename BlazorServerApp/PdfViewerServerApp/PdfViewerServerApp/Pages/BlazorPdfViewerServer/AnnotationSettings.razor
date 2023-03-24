@@ -1,0 +1,25 @@
+﻿@page "/AnnotationSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="Viewer" Width="100%" Height="100%">
+    <PdfViewerAnnotationSettings AllowedInteractions="@allowedInteractions" Author="AnnotationSetting" IsLock=true IsPrint=false SkipDownload=true SkipPrint=true MaxHeight=100 MinHeight=30 MaxWidth=100 MinWidth=30></PdfViewerAnnotationSettings>
+  </SfPdfViewerServer>
+
+@code {
+
+    public SfPdfViewerServer? Viewer { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    public List<AllowedInteraction> allowedInteractions = new List<AllowedInteraction>
+    {
+        AllowedInteraction.Move,
+          AllowedInteraction.Resize,
+          AllowedInteraction.PropertyChange,
+          AllowedInteraction.Select,
+          AllowedInteraction.None
+    };
+}

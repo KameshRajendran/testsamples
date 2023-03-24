@@ -1,0 +1,34 @@
+﻿@page "/ArrowSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="Viewer" Width="100%" Height="100%">
+    <PdfViewerArrowSettings IsLock=true AllowedInteractions="@allowedInteractions" Author="ArrowSettings" FillColor="green" Thickness=3 StrokeColor="Blue" Opacity=0.7 SkipDownload=true SkipPrint=true IsPrint=true LineHeadEndStyle="LineHeadStyle.Diamond" LineHeadStartStyle="LineHeadStyle.Round" AnnotationSelectorSettings="@selectorSettings"></PdfViewerArrowSettings>
+</SfPdfViewerServer>
+
+@code {
+
+    public SfPdfViewerServer? Viewer { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    public List<AllowedInteraction> allowedInteractions = new List<AllowedInteraction>
+    {
+        AllowedInteraction.Move,
+          AllowedInteraction.Resize,
+          AllowedInteraction.PropertyChange,
+          AllowedInteraction.Select,
+          AllowedInteraction.None
+    };
+    PdfViewerAnnotationSelectorSettings selectorSettings = new PdfViewerAnnotationSelectorSettings
+        {
+            ResizerBorderColor = "Red",
+            SelectionBorderColor = "Green",
+            SelectionBorderThickness = 3,
+            ResizerFillColor = "blue",
+            ResizerShape = Syncfusion.Blazor.PdfViewer.AnnotationResizerShape.Circle,
+            ResizerSize = 10
+    };
+}
