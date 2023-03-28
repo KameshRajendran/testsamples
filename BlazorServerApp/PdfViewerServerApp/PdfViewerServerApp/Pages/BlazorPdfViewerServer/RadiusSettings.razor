@@ -1,0 +1,46 @@
+﻿@page "/RadiusSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="Viewer" Width="100%" Height="100%">
+
+    <PdfViewerRadiusSettings IsLock=true AllowedInteractions="@allowedInteractions" Author="RadiusSettings" FillColor="green" Thickness=3 StrokeColor="Blue" Opacity=0.7 SkipDownload=false SkipPrint=false IsPrint=false AnnotationSelectorSettings="@selectorSettings" CustomData="@RadiusSetting" MaxHeight=100 MinHeight=50 MinWidth=50 MaxWidth=100></PdfViewerRadiusSettings>
+</SfPdfViewerServer>
+<div>CustomData:@RadiusSetting.CustomData</div>
+
+@code {
+
+    public SfPdfViewerServer? Viewer { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+    PdfViewerRadiusSettings RadiusSetting = new PdfViewerRadiusSettings
+        {
+            CustomData = "RadiusAnnotation"
+
+
+        };
+
+
+    public List<AllowedInteraction> allowedInteractions = new List<AllowedInteraction>
+    {
+        AllowedInteraction.Move,
+          AllowedInteraction.Resize,
+          AllowedInteraction.PropertyChange,
+          AllowedInteraction.Select,
+          AllowedInteraction.None
+    };
+    PdfViewerAnnotationSelectorSettings selectorSettings = new PdfViewerAnnotationSelectorSettings
+        {
+            ResizerBorderColor = "Red",
+            SelectionBorderColor = "Green",
+            SelectionBorderThickness = 4,
+            ResizerFillColor = "Orange",
+            ResizerShape = Syncfusion.Blazor.PdfViewer.AnnotationResizerShape.Circle,
+            ResizerSize = 10
+
+        };
+
+
+}

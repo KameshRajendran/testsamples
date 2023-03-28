@@ -1,0 +1,47 @@
+﻿@page "/RectangleSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="Viewer" Width="100%" Height="100%">
+
+    <PdfViewerRectangleSettings IsLock=true AllowedInteractions="@allowedInteractions" Author="RectangleSettings" FillColor="green" Thickness=3 StrokeColor="Blue" Opacity=0.7 SkipDownload=false SkipPrint=false IsPrint=false MaxHeight=100 MinHeight=50 MinWidth=50 MaxWidth=100 AnnotationSelectorSettings="@selectorSettings" CustomData="@RectangleSetting"></PdfViewerRectangleSettings>
+</SfPdfViewerServer>
+<div>CustomData:@RectangleSetting.CustomData</div>
+
+@code {
+
+    public SfPdfViewerServer? Viewer { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+
+    PdfViewerRectangleSettings RectangleSetting = new PdfViewerRectangleSettings
+        {
+            CustomData = "Rectangle-Annotation"
+
+
+        };
+
+
+    public List<AllowedInteraction> allowedInteractions = new List<AllowedInteraction>
+    {
+        AllowedInteraction.Move,
+          AllowedInteraction.Resize,
+          AllowedInteraction.PropertyChange,
+          AllowedInteraction.Select,
+          AllowedInteraction.None
+    };
+    PdfViewerAnnotationSelectorSettings selectorSettings = new PdfViewerAnnotationSelectorSettings
+        {
+            ResizerBorderColor = "Red",
+            SelectionBorderColor = "Green",
+            SelectionBorderThickness = 4,
+            ResizerFillColor = "Orange",
+            ResizerShape = Syncfusion.Blazor.PdfViewer.AnnotationResizerShape.Circle,
+            ResizerSize = 10
+
+        };
+
+
+}
