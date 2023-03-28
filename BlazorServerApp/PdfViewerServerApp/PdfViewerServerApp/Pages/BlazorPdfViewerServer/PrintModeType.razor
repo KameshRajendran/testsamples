@@ -1,0 +1,54 @@
+@page "/PrintModeType"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%" PrintMode=@printMode>
+    
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+<form name="form1" id="form1">
+    <select @onchange="stopMouseHover">
+        <option value="" selected="selected"></option>
+        <option value="printNewWindow">Print New Window</option>
+        
+    </select>
+</form>
+
+@code {
+
+    void stopMouseHover(ChangeEventArgs e)
+    {
+
+        switch (e.Value)
+        {
+            case "printNewWindow":
+                printNewWindow();
+                break;
+           
+
+        }
+    }
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+    PrintMode printMode = PrintMode.Default;
+
+    public void printNewWindow()
+
+    {
+        printMode = PrintMode.NewWindow;
+        
+
+        
+    }
+}

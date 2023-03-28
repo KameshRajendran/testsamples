@@ -1,4 +1,4 @@
-@page "/AnnotationToolbarItem"
+@page "/RectType"
 @using Syncfusion.Blazor.PdfViewerServer
 @using Syncfusion.Blazor.Buttons
 @using Syncfusion.Blazor.PdfViewer
@@ -9,7 +9,8 @@
 
         <SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Height="100%" Width="100%">
 
-            
+            <PdfViewerEvents AnnotationSelected="onAnnotationSelected"  />
+
            
 
         </SfPdfViewerServer>
@@ -33,7 +34,12 @@
 
 
 
-    
+    public void onAnnotationSelected(AnnotationSelectEventArgs value)
+    {
+
+        ResultString = $"Rect.Bottom: {value.AnnotationCollection[0].Rect.Bottom}   Rect.Left: {value.AnnotationCollection[0].Rect.Left}    Rect.Right: {value.AnnotationCollection[0].Rect.Right}    Rect.Top: {value.AnnotationCollection[0].Rect.Top}";
+    }
+
   
     
 }

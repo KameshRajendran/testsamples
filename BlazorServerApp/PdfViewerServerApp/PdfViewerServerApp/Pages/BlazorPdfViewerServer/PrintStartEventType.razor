@@ -1,0 +1,38 @@
+@page "/PrintStartEventType"
+
+@using Syncfusion.Blazor.PdfViewerServer
+
+@using Syncfusion.Blazor.Buttons
+
+@using Syncfusion.Blazor.PdfViewer
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="viewer" Width="100%" Height="100%">
+    <PdfViewerEvents PrintStart=@printstartEvent />
+</SfPdfViewerServer>
+<div>
+    @ResultString
+</div>
+
+
+
+@code {
+
+    
+
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+    SfPdfViewerServer? viewer { get; set; }
+    private string ResultString = "";
+
+    public void printstartEvent(PrintStartEventArgs value)
+
+    {
+        ResultString = $"FileName: {value.FileName}    Name: {value.Name}  Cancel: {value.Cancel}";
+
+
+    }
+
+    
+}
