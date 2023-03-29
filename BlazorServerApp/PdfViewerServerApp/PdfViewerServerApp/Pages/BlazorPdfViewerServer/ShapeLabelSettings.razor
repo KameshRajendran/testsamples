@@ -1,0 +1,21 @@
+﻿@page "/ShapeLabelSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="Viewer" Width="100%" Height="100%" EnableShapeLabel=true>
+
+    <PdfViewerShapeLabelSettings FillColor="Green" FontColor="Black" FontFamily="Times New Roman" FontSize=20 LabelContent="ShapeLabel" Notes="LabelSettings" Opacity=0.5></PdfViewerShapeLabelSettings>
+</SfPdfViewerServer>
+
+
+@code {
+
+    public SfPdfViewerServer? Viewer { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/pdf-succinctly.pdf";
+   
+
+
+}

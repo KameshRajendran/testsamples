@@ -93,4 +93,11 @@
 |87| https://localhost:7134/PrintModeType | PrintModeType.razor | Abishek Roy | Yes | - |
 |88| https://localhost:7134/PrintStartEventType | PrintStartEventType.razor | Abishek Roy | Yes |1) fileName and name value is not displayed |
 |89| https://localhost:7134/RectType | RectType.razor | Abishek Roy |Yes| 1) Rect type throws null reference exception |
+|90| https://localhost:7134/PerimeterSettings | PerimeterSettings.razor | Naveen Kumar | Yes | max-Mini-Height-width is not working properly , Start and End Arrow properties are not available |
+|91| https://localhost:7134/PolygonSettings | PolygonSettings.razor | Naveen Kumar | Yes |  max-Mini-Height-width is not working properly |
+|92| https://localhost:7134/RadiusSettings | RadiusSettings.razor | Naveen Kumar | Yes | --- |
+|93| https://localhost:7134/RectangleSettings | RectangleSettings.razor | Naveen Kumar | Yes | --- |
+|94| https://localhost:7134/ScrollSettings | ScrollSettings.razor | Naveen Kumar | Yes | Unable to find the DelayPageRequestTimeOnScroll  |
+|95| https://localhost:7134/ShapeLabelSettings | ShapeLabelSettings.razor | Naveen Kumar | Yes | --- |
+|96| https://localhost:7134/SignatureDialogSettings | SignatureDialogSettings.razor | Naveen Kumar | Yes | unable to set the requied display mode of signature dialogue |
 

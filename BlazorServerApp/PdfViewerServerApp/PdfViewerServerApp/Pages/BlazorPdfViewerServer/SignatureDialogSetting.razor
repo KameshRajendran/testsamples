@@ -1,0 +1,19 @@
+﻿@page "/SignatureDialogSettings"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Buttons
+
+
+
+<SfPdfViewerServer DocumentPath="@DocumentPath" @ref="Viewer" Width="100%" Height="100%" >
+    <PdfViewerSignatureDialogSettings HideSaveSignature=true DisplayMode="DisplayMode.Upload"></PdfViewerSignatureDialogSettings>
+</SfPdfViewerServer>
+
+
+@code {
+
+    public SfPdfViewerServer? Viewer { get; set; }
+    private string DocumentPath { get; set; } = "wwwroot/Data/pdfviewerserver/FormFillingDocument.pdf";
+
+
+}
